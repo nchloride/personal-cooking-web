@@ -1,0 +1,37 @@
+[
+    {
+        "featured":false,
+        "type" : "pastry",
+        "name" : "Puto pao",
+        "description" : "A small sized siopao/bite sized that is made from rice",
+        "ingredient" : ["1/2 flour","1 tbsp vanilla","3/4 corn starch","1/2 tbsp salt","1 spoon sugar","1/2 cup evaporated milk"],
+        "recipe":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"
+    }
+    ,
+    {
+        "featured":true,
+        "type" : "specialty",
+        "name" : "Donut",
+        "description" : "A doughnut that is cooked in oil and dipped in chocolate",
+        "ingredient" : ["1/2 flour","1 tbsp vanilla","3/4 corn starch","1/2 tbsp salt","1 spoon sugar","1/2 cup evaporated milk"],
+        "recipe":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"
+    }
+    ,
+    {
+        "featured":true,
+        "type" : "deserts",
+        "name" : "Fruit Salad",
+        "description" : "A delicious desert that will make you drool, made from special cream and fresh fruits",
+        "ingredient" : ["1/2 flour","1 tbsp vanilla","3/4 corn starch","1/2 tbsp salt","1 spoon sugar","1/2 cup evaporated milk"],
+        "recipe":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"
+    }
+    ,
+    {
+        "featured":true,
+        "type" : "deserts",
+        "name" : "Fruit Salad",
+        "description" : "A delicious desert that will make you drool, made from special cream and fresh fruits",
+        "ingredient" : ["1/2 flour","1 tbsp vanilla","3/4 corn starch","1/2 tbsp salt","1 spoon sugar","1/2 cup evaporated milk"],
+        "recipe":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"
+    }
+]

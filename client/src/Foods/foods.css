@@ -1,0 +1,17 @@
+.foods{
+    padding: 10px;
+
+}
+.food__container{
+    width: 80%;
+    height: 200px;
+    background-color: rgb(194, 192, 192);
+    padding: 10px;
+}
+.food__container>h1{
+    font-size: 20px;
+    font-weight: bolder;
+}
+.food__container>h2{
+    font-size: 20px;
+}

@@ -2,7 +2,7 @@
     box-sizing: border-box;
     margin: 0%;
     padding: 0%;
-    overflow: hidden
+
 }
 @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
 .navigation{
@@ -11,6 +11,11 @@
     justify-content: space-around;
     align-items: center;
     height: 100px;
+    margin-top: 5vh;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 100;
+    width: 50%;
 }
 .navigation__links{
     width: 50%;
@@ -19,6 +24,7 @@
     display: flex;
     justify-content: center;
     justify-content: space-around;
+    
 }
 .navLink{
     font-family: 'Lobster', cursive;
@@ -28,21 +34,66 @@
     text-align: center;
     text-decoration: none;
     color: black;
-   
+    padding: 10px;
+}
+.navLink:hover{
+    color: black;
+    text-decoration: none;
+    background-color: rgb(73, 73, 73);
+}
+div.navLink{
+    cursor: pointer;
 }
 .navLink__active{
     transition: .1s;
     /* box-shadow: 1pt 1pt 1pt 1pt  black; */
     border-bottom: 2px solid black;
-    
+}
+.navLink__dropDown_links{
+    display:flex;
+    flex-direction:column;
+    position:absolute;
+    animation: growAnimation .1s ease-in;
+    transform-origin: top left;
+    background-color:rgba(218, 218, 218,.5);
+    width:200px;
+    text-align:left;
+    z-index: 2;
+    box-shadow: 0 0 4pt 0pt black;
+}
+.navLink__dropDown_links:hover{
+    background-color: bisque;
+}
+@keyframes growAnimation{
+    from{
+    transform:scale(.5);
+    }
+    to{
+    transform:scale(1);
+    }
+}
+.dropDown_links{
+    text-decoration: none;
+    color: black;
+    padding: 10px;
+}
+.dropDown_links:hover{
+    text-decoration: none;
+
+}
+.dropDown_links:active{
+    background-color: whitesmoke;
 }
 @media screen and (max-width:425px){
   .navigation{
+      margin-top: unset;
       transition: .5s ease-in;
       height: 100vh;
       width: 50%;
       position: absolute; 
+      top: 0%;
       left: -100%;
+      align-items: start;
   }
   .nav_button__clicked{
       transition: .5s ease-out;
