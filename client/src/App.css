@@ -3,7 +3,16 @@
     margin-right: auto;
     width: 70%;
 }
-
+@media screen and (max-width:1024px){
+    .App__body{
+        width: 80%;
+    }
+}
+@media screen and (max-width:768px){
+    .App__body{
+        width: 100%;
+    }
+}
 @media screen and (max-width:425px){
     .App__body{
         width: 100%;

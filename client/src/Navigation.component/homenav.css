@@ -85,6 +85,11 @@ div.navLink{
 .dropDown_links:active{
     background-color: whitesmoke;
 }
+@media screen and (max-width:1024px){
+    .navigation{
+        width: 80%;
+    }
+}
 @media screen and (max-width:425px){
   .navigation{
       margin-top: unset;

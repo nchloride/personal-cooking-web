@@ -2,6 +2,7 @@
 const express = require("express")
 const app = express();
 const path = require("path")
+const foods = require("./api/foods")
 //CONFIG
 const port = process.env.PORT|| 8000;
 
@@ -12,7 +13,7 @@ app.use(express.json());
 
 
 //ROUTES
-
+app.use("/api/foods",foods)
 
 
 app.get("*", (req, res) => {
