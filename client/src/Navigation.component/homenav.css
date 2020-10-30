@@ -16,6 +16,7 @@
     margin-right: auto;
     z-index: 100;
     width: 70%;
+    box-shadow:0 1pt 1pt 0pt black;
 }
 .navigation__links{
     width: 50%;

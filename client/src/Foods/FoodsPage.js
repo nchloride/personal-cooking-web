@@ -22,16 +22,27 @@ const FoodsPage = () => {
         <div className="foods">
             {category ?
                 <> 
-                    <h1>{pageTitle}</h1>
-                    {selectedCategory.map((food,id)=>(
-                        <FoodContainer food={food} key={id}/>
-                    ))
-                    }
-                </>:
-                <>
-                    <h1>Foods</h1>
                     <div className="food_page__layout">
                         <div className="food__selected">
+                            <h1>{pageTitle}</h1>
+                            {selectedCategory.map((food,id)=>(
+                                <FoodContainer food={food} key={id}/>
+                            ))
+                            }
+                        </div>
+                        <div className="food__featured">
+                            <h1>Featured</h1>
+                            {selectedCategory.filter(food=>food.featured===true).map((food,id)=>(
+                                <FoodContainer food={food} key={id}/>
+                                ))
+                            }
+                        </div>
+                    </div>
+                </>:
+                <>
+                    <div className="food_page__layout">    
+                        <div className="food__selected">
+                            <h1>Foods</h1>
                             {foods.map((food,id)=>(
                                 <FoodContainer food={food} key={id}/>
                                 ))
