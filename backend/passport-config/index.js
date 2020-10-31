@@ -29,7 +29,7 @@ module.exports = function(passport){
     )
     passport.serializeUser((user, done) => done(null, user._id));
     passport.deserializeUser(function (id, done) {
-      db.get("userinformation")
+      db.get("user")
         .find({ _id: id })
         .then((doc) => done(null, doc));
     });
