@@ -18,7 +18,8 @@ const Login = ({setDisableNav}) => {
         <div className="login">
            <form className="login__form"  onSubmit={handleSubmit(handleLogin)}>
                 <h1>Login</h1>
-                <TextField inputRef={register({required:true})}
+                <TextField 
+                    inputRef={register({required:true})}
                     error={errors.username}
                     name="username"
                     size="medium"
