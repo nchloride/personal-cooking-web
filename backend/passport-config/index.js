@@ -31,6 +31,6 @@ module.exports = function(passport){
     passport.deserializeUser(function (id, done) {
       db.get("user")
         .find({ _id: id })
-        .then((doc) => done(null, doc));
+          .then((doc) => done(null, doc));
     });
 }

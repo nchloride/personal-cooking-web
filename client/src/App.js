@@ -5,6 +5,8 @@ import Home from "./Home/Home";
 import FoodsPage from "./Foods/FoodsPage";
 import "./App.css"
 import Login from "./Login";
+import Admin from "./admin";
+import Dashboard from "./dashboard";
 function App() {
   const [navEnabled,setNavEnabled] = useState(true);
 
@@ -16,7 +18,7 @@ function App() {
         <Switch>
           <Route path="/" exact component={Home}/>
           <Route path="/food/:category?"  component={FoodsPage}/>
-          <Route path="/login"  children={<Login setDisableNav={setNavEnabled}/>}/>
+          <Route path="/dashboard"  children={<Dashboard setEnableNav={setNavEnabled}/>}/>
         </Switch>
         </div>
     </div>

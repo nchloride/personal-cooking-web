@@ -49,7 +49,6 @@ app.post("/login",(req,res,next)=>{
                 else{
                    const accessToken = jwt.sign(user,process.env.SECRET_TOKEN);
                    res.json({accessToken});
-               
                 }
             })
         }
@@ -70,8 +69,8 @@ app.post("/register",async (req,res)=>{
         }
     })
 })
-app.get("/isLogin",userAuthenticated,(req,res)=>{
-    req.user !== null || req.user !== undefined ? res.send({authenticated:true}) : res.send({authenticated:false})
+app.get("/isLogin",(req,res)=>{
+    req.user !== null && req.user !== undefined ? res.send({authenticated:true}) : res.send({authenticated:false})
 })
 //API's
 app.use("/api/foods",foods)

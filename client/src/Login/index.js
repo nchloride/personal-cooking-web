@@ -3,17 +3,20 @@ import {useForm} from "react-hook-form"
 import "./login.css"
 import { TextField,Input } from '@material-ui/core';
 import axios from 'axios';
-const Login = ({setDisableNav}) => {
+import { withRouter } from 'react-router-dom';
+const Login = ({setLoggedIn}) => {
     const {handleSubmit,register,errors} = useForm()
-    useEffect(()=>{
-        setDisableNav(false)
-    },[])
     const handleLogin = async (data) =>{
         console.log(data);
         const resp = await axios.post("/login",data);
         const responseData = resp.data;
-        console.log(responseData);
+        if(responseData.accessToken !== undefined && responseData.accessToken !== null)
+        {
+            localStorage.setItem("accessToken",responseData.accessToken);
+            setLoggedIn(true)
+        }
     }
+   
     return (
         <div className="login">
            <form className="login__form"  onSubmit={handleSubmit(handleLogin)}>
@@ -43,4 +46,4 @@ const Login = ({setDisableNav}) => {
     )
 }
 
-export default Login
+export default withRouter(Login)
