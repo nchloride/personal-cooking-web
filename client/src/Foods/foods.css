@@ -5,6 +5,9 @@
     padding: 10px;
     background-color: rgb(255, 255, 255);
     box-shadow:0 1pt 1pt 0pt black;
+    width: 70%;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 .food_page__layout{
@@ -73,7 +76,15 @@
 .food__featured>h1{
     text-align: center;
 }
-@media screen and (max-width:425px), screen and (max-width:768px){
+@media screen and (max-width:1024px){
+    .foods{
+        width: 80%;
+    }
+}
+@media screen and (max-width:768px){
+    .foods{
+        width: 80%;
+    }
     .food__selected{
         border: none;
     }
@@ -102,4 +113,9 @@
          width: 40%;
      }
 
+}
+@media screen and (max-width:425px){
+    .foods{
+        width: 100%;
+    }
 }

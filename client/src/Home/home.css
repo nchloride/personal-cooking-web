@@ -1,6 +1,11 @@
 
 /* Carousel CSS */
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+.home{
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
 .carousel__item{
     position: relative;
 }
@@ -30,6 +35,11 @@
 .carousel__image{
     width:100%;
     height:50vh;
+}
+@media screen and (max-width:1024px){
+    .home{
+        width: 80%;
+    }
 }
 @media screen and (max-width:425px){
     .home{

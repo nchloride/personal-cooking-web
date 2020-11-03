@@ -1,9 +1,12 @@
 import React, { useState } from 'react'
 import "./foods.css"
 import AddCircleIcon from '@material-ui/icons/AddCircle';
-import FoodAdd from "./FoodAdd"
+import FoodModal from './FoodModal';
 const Foods = () => {
-    const [modalOpen,setModalOpen] = useState(false)
+    const [modalOpen,setModalOpen] = useState(false); 
+    const handleAddFood = async data =>{
+        console.log(data);
+    }
     return (
         <div className="food_tab">
             <div className="food__title">
@@ -48,7 +51,7 @@ const Foods = () => {
                     </tr>
                 </tbody>
             </table>
-            <FoodAdd modalOpen={modalOpen} setModalOpen={setModalOpen}/>
+            <FoodModal modalOpen={modalOpen} handleOperation={handleAddFood} setModalOpen={setModalOpen}/>
         </div>
     )
 }
