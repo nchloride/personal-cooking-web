@@ -49,6 +49,10 @@
 .food__table>thead>tr>th{
     padding: 5px;
 }
+.food__table>tbody>tr>td>img{
+    width: 5rem;
+    height: 5rem;
+}
 /* Food Modal Form */
 .food__modal{
     background-color: whitesmoke;
@@ -58,10 +62,38 @@
     transform: translate(-50%,-50%);
     height: 30rem;
     width: 50rem;
+    display: flex;
+    flex-direction: column;
 }
 .food__modal_form{
     display: flex;
     flex-direction: column;
+    width: 100%;
+    padding: 5px;
+}
+.food__modal_form>textarea{
+    resize: none;
+    height: 100px;
+}
+.food__modal_form>input[type=submit]{
+    background-color: rgb(106, 220, 255);
+    outline: none;
+    border: none;
+    font-size: 20px;
+    font-weight: bolder;
+}
+.food__modal_form>input[type=submit]:active{
+    transition: .1s;
+    box-shadow: 0 0 2pt 1pt rgb(105, 165, 255);
+
+}
+.food__modal>button{
+    border: none;
+    border-radius: 50%;
+    width: 1rem;
+    color: red;
+    outline: none;
+    margin-left:95%;
 }
 @media screen and (max-width:1200px){
     .food__modal{
@@ -82,5 +114,6 @@
     .food__modal{
        padding: 5px;
         width: 100%;
+        height: 100%;
     }
 }

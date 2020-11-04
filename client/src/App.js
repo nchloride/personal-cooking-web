@@ -7,9 +7,15 @@ import "./App.css"
 import Login from "./Login";
 import Admin from "./admin";
 import Dashboard from "./dashboard";
+import {useDispatch} from "react-redux"
+import { fetchFoods } from "./actions/foodActions";
+
 function App() {
   const [navEnabled,setNavEnabled] = useState(true);
-
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchFoods());
+  }, [])
   return (
     <div className="App">
         

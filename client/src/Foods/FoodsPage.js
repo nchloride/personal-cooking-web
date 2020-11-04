@@ -1,38 +1,38 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import {useParams} from "react-router-dom"
 import * as data from "../JSON-Default-Placeholder/foods.json"
 import FoodContainer from './FoodContainer'
 import {useDispatch,useSelector} from "react-redux"
 import "./foods.css"
 import { fetchFoods } from '../actions/foodActions'
+import axios from 'axios'
 const FoodsPage = () => {
     const {category} = useParams();
-    const foodList = useSelector(state=> state.foodList);
-    const dispatch = useDispatch()
-    const foods = data.default;
-    const selectedCategory = data.default.filter(food=>food.type === category);
+    const [foodList,setFoodList] = useState([]);
+    const selectedCategory = foodList && foodList.filter(food=>food.type === category);
     const pageTitle = category && `${category[0].toUpperCase()}${category.substring(1,category.length)}` 
     useEffect(()=>{
-        console.log(category);
-        console.log(data.default);
-        dispatch(fetchFoods());
-        console.log(foodList);
+        (async ()=>{
+            await axios.get("/api/foods").then(result=>{
+                setFoodList(result.data);
+            })
+        })()
     },[]);
     return (
         <div className="foods">
-            {category ?
+            {category ? 
                 <> 
                     <div className="food_page__layout">
                         <div className="food__selected">
                             <h1>{pageTitle}</h1>
-                            {selectedCategory.map((food,id)=>(
+                            {foodList && selectedCategory.map((food,id)=>(
                                 <FoodContainer food={food} key={id}/>
                             ))
                             }
                         </div>
                         <div className="food__featured">
                             <h1>Featured</h1>
-                            {selectedCategory.filter(food=>food.featured===true).map((food,id)=>(
+                            {selectedCategory.filter(food=>food.featured==="yes").map((food,id)=>(
                                 <FoodContainer food={food} key={id}/>
                                 ))
                             }
@@ -43,14 +43,14 @@ const FoodsPage = () => {
                     <div className="food_page__layout">    
                         <div className="food__selected">
                             <h1>Foods</h1>
-                            {foods.map((food,id)=>(
+                            {foodList.map((food,id)=>(
                                 <FoodContainer food={food} key={id}/>
                                 ))
                             }
                         </div>
                         <div className="food__featured">
                             <h1>Featured</h1>
-                            {foods.filter(food=>food.featured===true).map((food,id)=>(
+                            {foodList.filter(food=>food.featured==="yes").map((food,id)=>(
                                 <FoodContainer food={food} key={id}/>
                                 ))
                             }

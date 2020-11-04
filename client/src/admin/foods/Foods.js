@@ -1,12 +1,19 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import axios from "axios"
 import "./foods.css"
 import AddCircleIcon from '@material-ui/icons/AddCircle';
 import FoodModal from './FoodModal';
+import {useSelector,useDispatch} from "react-redux"
+import { fetchFoods } from '../../actions/foodActions';
+import FoodListRow from './FoodListRow';
+
 const Foods = () => {
     const [modalOpen,setModalOpen] = useState(false); 
-    const handleAddFood = async data =>{
-        console.log(data);
-    }
+    const foodList = useSelector(state => state.foodList);
+    const dispatch = useDispatch();
+    useEffect(()=>{
+        dispatch(fetchFoods());
+    },[])
     return (
         <div className="food_tab">
             <div className="food__title">
@@ -16,42 +23,21 @@ const Foods = () => {
             <table className="food__table">
                 <thead>
                     <tr>
+                        <th>Photo</th>
                         <th>Name</th>
                         <th>Type</th>
                         <th>Description</th>
                         <th>Ingredient</th>
                         <th>Recipe</th>
                         <th>Featured</th>
-                        <th>Changes</th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>
-                            tanga
-                        </td>
-                        <td>
-                            tanga2
-                        </td>
-                        <td>
-                            tanga3
-                        </td>
-                        <td>
-                            tanga
-                        </td>
-                        <td>
-                            tanga2
-                        </td>
-                        <td>
-                            tanga3
-                        </td>
-                        <td>
-                            tanga3
-                        </td>
-                    </tr>
+                    {foodList && foodList.map(food =><FoodListRow foodList={food} key={foodList._id}/>)}
                 </tbody>
             </table>
-            <FoodModal modalOpen={modalOpen} handleOperation={handleAddFood} setModalOpen={setModalOpen}/>
+            <FoodModal modalOpen={modalOpen} setModalOpen={setModalOpen}/>
         </div>
     )
 }

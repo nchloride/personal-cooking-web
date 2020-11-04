@@ -28,24 +28,25 @@
 .lines:nth-child(3){
     transform-origin: bottom right ;
 }
+.line__deactivate{
+    transition: .2s;
+    opacity: 0;
+}
+.line_1__slant{
+    transition: .2s;
+    transform: rotateZ(-35deg);
+    align-self: flex-end;
+}
+.line_3__slant{
+    transition: .2s;
+    transform: rotateZ(30deg);
+    align-self: flex-end;
+}
 @media screen and (max-width:425px){
     .navigation__button{
         display: flex;
         justify-content: space-between;
     }
-    .line__deactivate{
-        transition: .2s;
-        opacity: 0;
-    }
-    .line_1__slant{
-        transition: .2s;
-        transform: rotateZ(-35deg);
-        align-self: flex-end;
-    }
-    .line_3__slant{
-        transition: .2s;
-        transform: rotateZ(30deg);
-        align-self: flex-end;
-    }
+
     
 }
