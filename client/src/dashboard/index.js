@@ -10,6 +10,9 @@ const Dashboard = ({setEnableNav}) => {
         const stillLogin = async ()=>{
                 await axios.get("/isLogin").then(response=>{
                     if(response.data.authenticated) setLoggedIn(true)
+                    else{
+                        localStorage.removeItem("accessToken")
+                    }
                 })
             }
         stillLogin()

@@ -7,7 +7,6 @@ import { withRouter } from 'react-router-dom';
 const Login = ({setLoggedIn}) => {
     const {handleSubmit,register,errors} = useForm()
     const handleLogin = async (data) =>{
-        console.log(data);
         const resp = await axios.post("/login",data);
         const responseData = resp.data;
         if(responseData.accessToken !== undefined && responseData.accessToken !== null)

@@ -9,11 +9,13 @@ import FoodListRow from './FoodListRow';
 
 const Foods = () => {
     const [modalOpen,setModalOpen] = useState(false); 
+    const [refresh,setRefresh] = useState();
     const foodList = useSelector(state => state.foodList);
     const dispatch = useDispatch();
     useEffect(()=>{
         dispatch(fetchFoods());
-    },[])
+        setRefresh(false)
+    },[!refresh])
     return (
         <div className="food_tab">
             <div className="food__title">
@@ -34,10 +36,10 @@ const Foods = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {foodList && foodList.map(food =><FoodListRow foodList={food} key={foodList._id}/>)}
+                    {foodList && foodList.map(food =><FoodListRow foodList={food} key={food._id}/>)}
                 </tbody>
             </table>
-            <FoodModal modalOpen={modalOpen} setModalOpen={setModalOpen}/>
+            <FoodModal modalOpen={modalOpen} setRefresh={setRefresh} setModalOpen={setModalOpen}/>
         </div>
     )
 }

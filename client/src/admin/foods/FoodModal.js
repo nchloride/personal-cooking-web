@@ -3,6 +3,7 @@ import Modal from "react-modal"
 import {useForm} from "react-hook-form"
 import HighlightOffIcon from '@material-ui/icons/HighlightOff';
 import axios from "axios"
+import { setRef } from '@material-ui/core';
 const convertBase64 = photo =>{
     return new Promise((resolve,reject)=>{
         const fileReader = new FileReader();
@@ -17,14 +18,22 @@ const convertBase64 = photo =>{
         }
     })
 }
-export default function FoodModal({modalOpen,setModalOpen}) {
+export default function FoodModal({modalOpen,setModalOpen,setRefresh}) {
     const {handleSubmit,errors,register,reset} = useForm();
     const notEqualsToPlaceHolder = value => value !=='placeholder'
     const handleAddFood = async data =>{
-        const base64Photo = await convertBase64(data.picture[0]);
-        data.picture = base64Photo;
-        console.log(data.picture);
-        await axios.post("/api/foods",data).then(response=>console.log(response));
+        data.ingredients = data.ingredients.split(`\n`);
+        const accessToken = localStorage.getItem("accessToken")
+        const photos =[];   
+        Array.prototype.forEach.call(data.picture, file =>{
+            photos.push(file)
+        })
+        Promise.all( photos.map(async photo => await convertBase64(photo))).then(async val=>{
+            data.picture=val
+            console.log(data.picture);
+            await axios.post("/api/foods",data,{headers:{"Authorization":`Bearer ${accessToken}`}}).then(response=>console.log(response));
+        })    
+        setRefresh(true);
         reset()
     }
     Modal.setAppElement("body");
@@ -47,7 +56,7 @@ export default function FoodModal({modalOpen,setModalOpen}) {
                     <option value="yes">Yes</option>
                     <option value="no">No</option>
                 </select>
-                <input type="file" name="picture" ref={register({required:true,validate:{
+                <input type="file" multiple name="picture" ref={register({required:true,validate:{
                     fileSize:value=>value[0].size<=1000000,
                 }})}/>
                 <input type="submit" value="Add food"></input>

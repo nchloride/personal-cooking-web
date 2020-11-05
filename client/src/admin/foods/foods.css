@@ -25,6 +25,13 @@
    
 
 }
+tbody,thead{
+    display: block;
+}
+.food__table>tbody{
+    height: 85vh;
+    overflow-y: scroll;
+}
 .food__table>thead{
     background-color: rgb(94, 94, 94);
     font-size: 20px;
@@ -38,13 +45,17 @@
     color: whitesmoke;
 
 }
+
 .food__table>tbody>tr
 {
     border-bottom: 1px solid black;
     display: table;
     width: 100%;
     table-layout: fixed;
-    
+   
+}
+.food__table>tbody>tr:nth-child(even){
+    background-color: darkgray;
 }
 .food__table>thead>tr>th{
     padding: 5px;

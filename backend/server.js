@@ -76,11 +76,15 @@ app.post("/register",async (req,res)=>{
 app.get("/isLogin",(req,res)=>{
     req.user !== null && req.user !== undefined ? res.send({authenticated:true}) : res.send({authenticated:false})
 })
+app.get("/logOut", (req,res)=>{
+    req.logout();
+    res.redirect('/');
+})
 //API's
 app.use("/api/foods",foods)
 
 
-app.get("*", (req, res) => {
+app.get("/*", (req, res) => {
     res.sendFile(path.join(__dirname, "../client/build","index.html"));
 });
 

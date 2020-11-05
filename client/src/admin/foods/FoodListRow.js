@@ -8,11 +8,11 @@ const FoodListRow = ({foodList}) => {
     },[])
     return (
         <tr>
-            <td><img src={picture} alt=""></img></td>
+            <td><img src={picture[0]} alt=""></img></td>
             <td>{name}</td>
             <td>{type}</td>
             <td>{description}</td>
-            <td>{ingredients}</td>
+            <td><ul>{ingredients.map((ing,id)=>(<li key={id}>{ing}</li>))}</ul></td>
             <td>{recipe}</td>
             <td>{featured}</td>
             <td>
