@@ -32,6 +32,7 @@ tbody,thead{
     height: 85vh;
     overflow-y: scroll;
 }
+
 .food__table>thead{
     background-color: rgb(94, 94, 94);
     font-size: 20px;
@@ -105,6 +106,13 @@ tbody,thead{
     color: red;
     outline: none;
     margin-left:95%;
+}
+.food__modal_form>.images>img{
+    width: 5rem;
+    height: 5rem;
+}
+.food__modal_form>.images{
+    display: flex;
 }
 @media screen and (max-width:1200px){
     .food__modal{

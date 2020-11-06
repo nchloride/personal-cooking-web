@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import {useForm} from "react-hook-form"
 import "./login.css"
 import { TextField,Input } from '@material-ui/core';
@@ -6,6 +6,7 @@ import axios from 'axios';
 import { withRouter } from 'react-router-dom';
 const Login = ({setLoggedIn}) => {
     const {handleSubmit,register,errors} = useForm()
+    const [message,setMessage] = useState();
     const handleLogin = async (data) =>{
         const resp = await axios.post("/login",data);
         const responseData = resp.data;
@@ -14,6 +15,7 @@ const Login = ({setLoggedIn}) => {
             localStorage.setItem("accessToken",responseData.accessToken);
             setLoggedIn(true)
         }
+        setMessage("Incorrect password or username")
     }
    
     return (
@@ -40,7 +42,9 @@ const Login = ({setLoggedIn}) => {
                     margin="normal"
                    />
                 <input type="submit"></input>
+                 <h2 style={{color:"red",fontSize:"15px", fontWeight:"lighter"}}>{message}</h2>
            </form>
+           
         </div>
     )
 }

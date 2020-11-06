@@ -2,13 +2,14 @@ import React, { useEffect, useState } from 'react'
 import axios from "axios"
 import "./foods.css"
 import AddCircleIcon from '@material-ui/icons/AddCircle';
-import FoodModal from './FoodModal';
+import FoodModal from './FoodModalAdd';
 import {useSelector,useDispatch} from "react-redux"
 import { fetchFoods } from '../../actions/foodActions';
 import FoodListRow from './FoodListRow';
+import useModalHooks from '../../ModalHooks/useModalHooks';
 
 const Foods = () => {
-    const [modalOpen,setModalOpen] = useState(false); 
+    const [modalOpen,setModalOpen] = useModalHooks(false); 
     const [refresh,setRefresh] = useState();
     const foodList = useSelector(state => state.foodList);
     const dispatch = useDispatch();
@@ -36,7 +37,7 @@ const Foods = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {foodList && foodList.map(food =><FoodListRow foodList={food} key={food._id}/>)}
+                    {foodList && foodList.map(food =><FoodListRow setRefresh={setRefresh} foodList={food} key={food._id}/>)}
                 </tbody>
             </table>
             <FoodModal modalOpen={modalOpen} setRefresh={setRefresh} setModalOpen={setModalOpen}/>

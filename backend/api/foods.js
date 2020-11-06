@@ -9,11 +9,18 @@ const userAuthenticated = (req,res,next) =>{
         next();
     })
 }
+
 router.get("/",(req,res)=>{
     db.get('foods').find({}).then(result => res.json(result));
 });
 router.post("/",userAuthenticated,(req,res)=>{
-    
     db.get('foods').insert(req.body).then(result=>res.send({message:"Data inserted succesfully"}));
+})
+router.put("/",userAuthenticated,(req,res)=>{
+    const foodID = req.body.food._id
+    const {name,type,description,ingredients,recipe,featured,picture} = req.body.food
+    db.get('foods').findOneAndUpdate({_id:foodID},
+        {$set:{name,type,description,ingredients,recipe,featured,picture}})
+            .then(result => res.json(result))
 })
 module.exports = router;
