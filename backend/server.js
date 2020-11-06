@@ -16,8 +16,8 @@ const bodyParser = require("body-parser")
 //CONFIG
 const port = process.env.PORT|| 8000;
 
-app.use(express.static("../client/build"));
-
+// app.use(express.static("../client/build"));
+app.use('/',express.static(path.join(__dirname, "../client/build")));
 //MIDDLEWARES
 const userAuthenticated = (req,res,next) =>{
     const accessToken = req.body.token.split(" ")[0]
@@ -84,8 +84,9 @@ app.get("/logOut", (req,res)=>{
 app.use("/api/foods",foods)
 
 
-app.get("/*", (req, res) => {
-    res.sendFile(path.join(__dirname, "../client/build","index.html"));
+app.get("*", (req, res) => {
+    res.sendFile('index.html',{root:path.join(__dirname, "../client/build")});
+    //res.redirect("/")
 });
 
 

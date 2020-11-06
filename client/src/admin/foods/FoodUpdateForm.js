@@ -1,8 +1,8 @@
 import React,{useEffect, useState} from 'react'
 import {useForm} from "react-hook-form"
 import axios from "axios"
-const FoodUpdateForm = ({food,base64Convert,setRefresh,accessToken,notEqualsToPlaceHolder}) => {
-    const {handleSubmit,errors,register,reset} = useForm();
+const FoodUpdateForm = ({food,base64Convert,setModalOpen,setRefresh,notEqualsToPlaceHolder}) => {
+    const {handleSubmit,errors,register} = useForm();
     const [initialFoodValue,setInitialFoodValue]  = useState( {
         name:food.name,
         type:food.type,
@@ -15,7 +15,11 @@ const FoodUpdateForm = ({food,base64Convert,setRefresh,accessToken,notEqualsToPl
     const handleUpdateFood =async data =>{
         data.picture = data.picture.length ===0? food.picture : data.picture
         data._id = food._id
+        data.ingredients = data.ingredients.split('\n').filter(ing => ing !== "" && ing !== "," )
         const accessToken = localStorage.getItem("accessToken")
+        await  axios.put("/api/foods",data,{headers:{"Authorization":`Bearer ${accessToken}`}}).then(result => console.log(result))
+        setRefresh(true);
+        setModalOpen(prevData=>!prevData);
     }
     const handleOnchangeFoodState = e =>{
         

@@ -43,7 +43,7 @@ export default function FoodModal({modalOpen,setModalOpen,setRefresh,food}) {
     return (
         <Modal  isOpen={modalOpen} className="food__modal" >
             <button onClick={()=>setModalOpen(!modalOpen)}><HighlightOffIcon/></button>
-            {food? <FoodUpdateForm food={food} setRefresh={setRefresh} base64Convert={convertBase64} notEqualsToPlaceHolder={notEqualsToPlaceHolder}/>
+            {food? <FoodUpdateForm setModalOpen={setModalOpen} food={food} setRefresh={setRefresh} base64Convert={convertBase64} notEqualsToPlaceHolder={notEqualsToPlaceHolder}/>
             :
             <form className="food__modal_form" onSubmit={handleSubmit(handleAddFood)}>
                 <input type="text" placeholder="Name" name="name" ref={register({required:true})}/>

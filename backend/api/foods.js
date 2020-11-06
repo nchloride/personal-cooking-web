@@ -17,10 +17,11 @@ router.post("/",userAuthenticated,(req,res)=>{
     db.get('foods').insert(req.body).then(result=>res.send({message:"Data inserted succesfully"}));
 })
 router.put("/",userAuthenticated,(req,res)=>{
-    const foodID = req.body.food._id
-    const {name,type,description,ingredients,recipe,featured,picture} = req.body.food
+    
+    const foodID = req.body._id
+    const {name,type,description,ingredients,recipe,featured,picture} = req.body
     db.get('foods').findOneAndUpdate({_id:foodID},
         {$set:{name,type,description,ingredients,recipe,featured,picture}})
-            .then(result => res.json(result))
+            .then(result => res.send({message:'Data updated successfully'}))
 })
 module.exports = router;
