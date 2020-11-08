@@ -1,14 +1,17 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import useModalHooks from '../../ModalHooks/useModalHooks'
 import FoodModalAdd from './FoodModalAdd';
 
 
-const FoodListRow = ({foodList,setRefresh}) => {
+const FoodListRow = ({foodList,setRefresh,handleDelete}) => {
     const {name,description,featured,ingredients,type,picture,recipe,_id} = foodList
     const [modalOpen,setModalOpen]= useModalHooks(false);
-    useEffect(()=>{
-        console.log(foodList);
-    },[])
+    const onClickedDelete = ()=>{
+        handleDelete(_id)
+    }
+    const onCLickedModalOpen = ()=>{
+        setModalOpen(true)
+    }
     return (
         <>
         <tr>
@@ -21,8 +24,8 @@ const FoodListRow = ({foodList,setRefresh}) => {
             <td>{featured}</td>
             <td>
                 <div>
-                    <button>DELETE</button>
-                    <button onClick={()=>{setModalOpen(true)}}>EDIT</button>
+                    <button onClick={onClickedDelete} className="delete">DELETE</button>
+                    <button onClick={onCLickedModalOpen} className="edit">EDIT</button>
                 </div>
             </td>
         </tr>
@@ -30,7 +33,7 @@ const FoodListRow = ({foodList,setRefresh}) => {
             setModalOpen={setModalOpen}
             setRefresh={setRefresh}
             modalOpen={modalOpen}
-            food = {{name,description,featured,ingredients,type,picture,recipe,_id}} 
+            food = {foodList} 
         />
         </>
     )

@@ -62,7 +62,7 @@ export default function FoodModal({modalOpen,setModalOpen,setRefresh,food}) {
                     <option value="no">No</option>
                 </select>
                 
-                <input type="file" multiple name="picture" ref={register({required:true})}/>
+                <input type="file" multiple name="picture" accept="image/x-png,image/gif,image/jpeg" ref={register({required:true})}/>
                 <input type="submit" value="Add food"></input>
             </form>}
         </Modal>

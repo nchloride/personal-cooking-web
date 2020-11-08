@@ -6,7 +6,7 @@
 }
 @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
 .navigation{
-    background-color: whitesmoke;
+    background-color: rgba(204, 204, 204, 0.411);
     display: flex;
     justify-content: space-around;
     align-items: center;

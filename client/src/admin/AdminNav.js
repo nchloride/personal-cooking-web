@@ -19,7 +19,9 @@ const AdminNav = () => {
     }
     return (
         <>
+          
             <ul className="admin__navLinks">
+                <h1>Dashboard</h1>
                 <NavLink to="/dashboard/admin/foods" className="navLink" activeClassName="navLink__active">Foods</NavLink>
                 <NavLink to="/dashboard/admin/settings" className="navLink" activeClassName="navLink__active">Settings</NavLink>
                 <NavLink to="/dashboard/admin/messages"className="navLink" activeClassName="navLink__active">Messages</NavLink>

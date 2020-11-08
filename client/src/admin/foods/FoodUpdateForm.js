@@ -3,7 +3,7 @@ import {useForm} from "react-hook-form"
 import axios from "axios"
 const FoodUpdateForm = ({food,base64Convert,setModalOpen,setRefresh,notEqualsToPlaceHolder}) => {
     const {handleSubmit,errors,register} = useForm();
-    const [initialFoodValue,setInitialFoodValue]  = useState( {
+    const [initialFoodValue,setInitialFoodValue]  = useState({
         name:food.name,
         type:food.type,
         description:food.description,
@@ -13,7 +13,7 @@ const FoodUpdateForm = ({food,base64Convert,setModalOpen,setRefresh,notEqualsToP
         picture:food.picture
     })
     const handleUpdateFood =async data =>{
-        data.picture = data.picture.length ===0? food.picture : data.picture
+        data.picture = data.picture.length ===0? food.picture : initialFoodValue.picture
         data._id = food._id
         data.ingredients = data.ingredients.split('\n').filter(ing => ing !== "" && ing !== "," )
         const accessToken = localStorage.getItem("accessToken")
@@ -22,7 +22,6 @@ const FoodUpdateForm = ({food,base64Convert,setModalOpen,setRefresh,notEqualsToP
         setModalOpen(prevData=>!prevData);
     }
     const handleOnchangeFoodState = e =>{
-        
         if(e.target.name === 'picture')
         {
             let photos = [];

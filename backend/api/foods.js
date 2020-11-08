@@ -24,4 +24,9 @@ router.put("/",userAuthenticated,(req,res)=>{
         {$set:{name,type,description,ingredients,recipe,featured,picture}})
             .then(result => res.send({message:'Data updated successfully'}))
 })
+router.delete("/:id",userAuthenticated,(req,res)=>{
+    const {id} = req.params;
+    db.get('foods').findOneAndDelete({_id:id}).then(result => res.send({message:"Data deleted successfully!"}))
+
+})
 module.exports = router;

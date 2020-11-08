@@ -9,6 +9,7 @@ import FoodListRow from './FoodListRow';
 import useModalHooks from '../../ModalHooks/useModalHooks';
 
 const Foods = () => {
+    const accessToken = localStorage.getItem("accessToken")
     const [modalOpen,setModalOpen] = useModalHooks(false); 
     const [refresh,setRefresh] = useState();
     const foodList = useSelector(state => state.foodList);
@@ -17,6 +18,10 @@ const Foods = () => {
         dispatch(fetchFoods());
         setRefresh(false)
     },[!refresh])
+    const handleDelete = async(Id) =>{
+        await axios.delete(`/api/foods/${Id}`,{headers:{'Authorization':`Bearer ${accessToken}`}})
+                .then(response =>setRefresh(true))
+    }
     return (
         <div className="food_tab">
             <div className="food__title">
@@ -37,7 +42,7 @@ const Foods = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {foodList && foodList.map(food =><FoodListRow setRefresh={setRefresh} foodList={food} key={food._id}/>)}
+                    {foodList && foodList.map(food =><FoodListRow handleDelete={handleDelete} setRefresh={setRefresh} foodList={food} key={food._id}/>)}
                 </tbody>
             </table>
             <FoodModal modalOpen={modalOpen} setRefresh={setRefresh} setModalOpen={setModalOpen}/>
