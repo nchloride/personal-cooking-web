@@ -22,19 +22,20 @@
     transition: .1s;
     transform: scale(1.2);
 }
+::-webkit-scrollbar{
+    display: none;
+}
 /* Food Table */
 .food__table{
     width: 100%;
-   
+   table-layout: fixed;
 
 }
-tbody,thead{
+/* TABLLE HEAD */
+thead{
     display: block;
 }
-.food__table>tbody{
-    height: 85vh;
-    overflow-y: scroll;
-}
+
 
 .food__table>thead{
     background-color: rgb(218, 218, 218);
@@ -48,39 +49,47 @@ tbody,thead{
     color: rgb(94,94,94);
 
 }
-
-.food__table>tbody>tr
-{
-    
+.food__table>thead>tr>th{
+    padding: 5px;
+}
+/* TABLE BODY */
+.food__table>tbody{
+    height: 85vh;
+    overflow-y: scroll;
+    display: block;
+}
+.food__table>tbody>tr{
     display: table;
     width: 100%;
     table-layout: fixed;
-    text-align: left;
     font-weight: bold;
     
-}
-.food__table>tbody>tr:nth-child(even){
-    background-color: darkgray;
- 
-}
-.food__table>thead>tr>th{
-    padding: 5px;
-    
-}
-.food__table>tbody>tr>td>img{
-    width: 5rem;
-    height: 5rem;
-    object-fit: cover;
 }
 .food__table>tbody>tr>td{
     width: 100%;
     padding: 5px;
-    word-break: break-all;
+    word-break: break-all
 }
+.food__table>tbody>tr:nth-child(even){
+    background-color: rgb(218, 218, 218);
+}
+td>ul>li{
+    text-decoration: none;
+    list-style: none;
+}
+/* TABLE DATA IMAGE */
+.food__table>tbody>tr>td>img{
+    width: 100%;
+    height: 5rem;
+    object-fit: cover;
+}
+
+/* TABLE DATA ACTIONS */
 .food__table>tbody>tr>td>div{
     display: flex;
     justify-content: space-around;
 }
+
 .food__table>tbody>tr>td>div>button{
     
     border: none;
@@ -96,12 +105,12 @@ tbody,thead{
 }
 /* Food Modal Form */
 .food__modal{
-    background-color: whitesmoke;
+    background-color: rgb(151, 151, 151);
     position: absolute;
     top:50%;
     left: 50%;
     transform: translate(-50%,-50%);
-    height: 30rem;
+    height: 35rem;
     width: 50rem;
     display: flex;
     flex-direction: column;
@@ -129,6 +138,7 @@ tbody,thead{
 
 }
 .food__modal>button{
+    background-color: transparent;
     border: none;
     border-radius: 50%;
     width: 1rem;
@@ -146,6 +156,7 @@ tbody,thead{
 @media screen and (max-width:1200px){
     .food__modal{
         margin-left: 10%;
+       
     }
 }
 @media screen and (max-width:1024px){
@@ -154,7 +165,7 @@ tbody,thead{
     }
     .food__modal{
         margin-left: unset;
-        height: 30rem;
+        height: 35rem;
         width: 40rem;
     }
 }

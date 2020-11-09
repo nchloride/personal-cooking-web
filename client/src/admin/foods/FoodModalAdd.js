@@ -32,9 +32,9 @@ export default function FoodModal({modalOpen,setModalOpen,setRefresh,food}) {
         Promise.all( photos.map(async photo => await convertBase64(photo))).then(async val=>{
             data.picture=val
             console.log(data.picture);
-            await axios.post("/api/foods",data,{headers:{"Authorization":`Bearer ${accessToken}`}}).then(response=>console.log(response));
+            await axios.post("/api/foods",data,{headers:{"Authorization":`Bearer ${accessToken}`}}).then(response=> setRefresh(true));
         })    
-        setRefresh(true);
+       
         reset()
     }
 
@@ -52,6 +52,7 @@ export default function FoodModal({modalOpen,setModalOpen,setRefresh,food}) {
                     <option value="pastry">Pastry</option>
                     <option value="specialty">Specialty</option>
                     <option value="desert">Desert</option>
+                    <option value="dinner">dinner</option>
                 </select>
                 <textarea  placeholder="Write a description for the food..."  name="description" ref={register({required:true})}/>
                 <textarea  placeholder="Ingredients...." name="ingredients" ref={register({required:true})}/>

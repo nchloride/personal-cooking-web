@@ -28,7 +28,7 @@ const Foods = () => {
                 <h1>FOODS</h1>
                 <button onClick={()=>setModalOpen(true)}><AddCircleIcon/></button>
             </div>
-            <table className="food__table">
+            <table className="food__table" >
                 <thead>
                     <tr>
                         <th>Photo</th>

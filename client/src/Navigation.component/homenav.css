@@ -6,7 +6,7 @@
 }
 @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
 .navigation{
-    background-color: rgba(204, 204, 204, 0.411);
+background-color: whitesmoke;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -17,6 +17,8 @@
     z-index: 100;
     width: 70%;
     box-shadow:0 1pt 1pt 0pt black;
+    position: sticky;
+    top: 0%;
 }
 .navigation__links{
     width: 50%;
@@ -60,6 +62,7 @@ div.navLink{
     background-color:rgba(218, 218, 218,.5);
     width:200px;
     text-align:left;
+    top: 60%;
     z-index: 2;
     box-shadow: 0 0 4pt 0pt black;
 }
@@ -74,21 +77,22 @@ div.navLink{
     transform:scale(1);
     }
 }
-.dropDown_links{
+.navLink__dropDown_links>.dropDown_links{
+    font-family: 'Lobster', cursive;
     text-decoration: none;
     color: black;
     padding: 10px;
 }
-.dropDown_links:hover{
+.navLink__dropDown_links>.dropDown_links:hover{
     text-decoration: none;
-
 }
-.dropDown_links:active{
+.navLink__dropDown_links>.dropDown_links:active{
     background-color: whitesmoke;
 }
 @media screen and (max-width:1024px){
     .navigation{
         width: 80%;
+
     }
 }
 @media screen and (max-width:425px){
@@ -101,6 +105,10 @@ div.navLink{
       top: 0%;
       left: -100%;
       align-items: start;
+   
+  }
+  .navLink__dropDown_links{
+      top: 20%;
   }
   .nav_button__clicked{
       transition: .5s ease-out;

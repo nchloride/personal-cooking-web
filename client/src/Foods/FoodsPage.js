@@ -36,6 +36,7 @@ const FoodsPage = () => {
                                 <FoodContainer food={food} key={id}/>
                                 ))
                             }
+                            tite
                         </div>
                     </div>
                 </>:
