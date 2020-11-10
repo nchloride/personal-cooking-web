@@ -14,6 +14,7 @@
 }
 .food__title>button{
     background-color: transparent;
+    color: limegreen;
     border: none;
     outline: none;
     border-radius: 50%;
@@ -68,6 +69,7 @@ thead{
 .food__table>tbody>tr>td{
     width: 100%;
     padding: 5px;
+    font-weight: normal;
     word-break: break-all
 }
 .food__table>tbody>tr:nth-child(even){

@@ -13,7 +13,10 @@ const Foods = () => {
     const [modalOpen,setModalOpen] = useModalHooks(false); 
     const [refresh,setRefresh] = useState();
     const foodList = useSelector(state => state.foodList);
+    const [foodLimit,setFoodLimit] = useState(1);
     const dispatch = useDispatch();
+
+    const foodListLimit = foodList.slice(0,foodLimit*2);
     useEffect(()=>{
         dispatch(fetchFoods());
         setRefresh(false)
@@ -22,11 +25,14 @@ const Foods = () => {
         await axios.delete(`/api/foods/${Id}`,{headers:{'Authorization':`Bearer ${accessToken}`}})
                 .then(response =>setRefresh(true))
     }
+    const handleModalOpen = ()=>{
+        setModalOpen(true)
+    }
     return (
         <div className="food_tab">
             <div className="food__title">
                 <h1>FOODS</h1>
-                <button onClick={()=>setModalOpen(true)}><AddCircleIcon/></button>
+                <button onClick={handleModalOpen}><AddCircleIcon/></button>
             </div>
             <table className="food__table" >
                 <thead>
@@ -42,7 +48,13 @@ const Foods = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {foodList && foodList.map(food =><FoodListRow handleDelete={handleDelete} setRefresh={setRefresh} foodList={food} key={food._id}/>)}
+                    {foodList && foodListLimit.map(food =><FoodListRow handleDelete={handleDelete} setRefresh={setRefresh} foodList={food} key={food._id}/>)}
+                    
+                    {foodListLimit.length<foodList.length && <tr>
+                        <td>
+                            <button onClick={()=>setFoodLimit(prevData=>prevData+prevData)}>Load more</button>
+                        </td>
+                    </tr>}
                 </tbody>
             </table>
             <FoodModal modalOpen={modalOpen} setRefresh={setRefresh} setModalOpen={setModalOpen}/>

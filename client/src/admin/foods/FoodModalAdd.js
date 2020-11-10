@@ -51,7 +51,7 @@ export default function FoodModal({modalOpen,setModalOpen,setRefresh,food}) {
                     <option value="placeholder" >---Type---</option>
                     <option value="pastry">Pastry</option>
                     <option value="specialty">Specialty</option>
-                    <option value="desert">Desert</option>
+                    <option value="deserts">Desert</option>
                     <option value="dinner">dinner</option>
                 </select>
                 <textarea  placeholder="Write a description for the food..."  name="description" ref={register({required:true})}/>

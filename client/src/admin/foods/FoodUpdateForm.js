@@ -43,7 +43,7 @@ const FoodUpdateForm = ({food,base64Convert,setModalOpen,setRefresh,notEqualsToP
                     <option value="placeholder" >---Type---</option>
                     <option value="pastry">Pastry</option>
                     <option value="specialty">Specialty</option>
-                    <option value="desert">Desert</option>
+                    <option value="deserts">Desert</option>
                     <option value="dinner">Dinner</option>
                 </select>
                 <textarea value={initialFoodValue.description} onChange={handleOnchangeFoodState} placeholder="Write a description for the food..."  name="description" ref={register({required:true})}/>
