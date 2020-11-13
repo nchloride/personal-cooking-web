@@ -14,7 +14,13 @@ router.get("/",(req,res)=>{
     db.get('foods').find({}).then(result => res.json(result));
 });
 router.post("/",userAuthenticated,(req,res)=>{
-    db.get('foods').insert(req.body).then(result=>res.send({message:"Data inserted succesfully"}));
+    db.get("foods").findOne({name:req.body.name}).then(doc=>{
+        if(!doc)  db.get('foods').insert(req.body).then(result=>res.send({message:"Data inserted succesfully",successful:true}));
+        else{
+            res.send({message:'Food name already taken!',successful:false}).status(500)
+        }
+    })
+    
 })
 router.put("/",userAuthenticated,(req,res)=>{
     

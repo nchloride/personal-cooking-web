@@ -13,10 +13,11 @@ const Foods = () => {
     const [modalOpen,setModalOpen] = useModalHooks(false); 
     const [refresh,setRefresh] = useState();
     const foodList = useSelector(state => state.foodList);
-    const [foodLimit,setFoodLimit] = useState(1);
+    const [foodCounter,setFoodCounter] = useState(1);
+    const foodLimit = 10
     const dispatch = useDispatch();
 
-    const foodListLimit = foodList.slice(0,foodLimit*2);
+    const foodListLimit = foodList.slice(0,foodCounter*foodLimit);
     useEffect(()=>{
         dispatch(fetchFoods());
         setRefresh(false)
@@ -27,6 +28,9 @@ const Foods = () => {
     }
     const handleModalOpen = ()=>{
         setModalOpen(true)
+    }
+    const handleDataLoad = ()=>{
+        setFoodCounter(prevData=>prevData+prevData)
     }
     return (
         <div className="food_tab">
@@ -50,9 +54,10 @@ const Foods = () => {
                 <tbody>
                     {foodList && foodListLimit.map(food =><FoodListRow handleDelete={handleDelete} setRefresh={setRefresh} foodList={food} key={food._id}/>)}
                     
-                    {foodListLimit.length<foodList.length && <tr>
+                    {foodListLimit.length<foodList.length && 
+                    <tr className="load__more_row">
                         <td>
-                            <button onClick={()=>setFoodLimit(prevData=>prevData+prevData)}>Load more</button>
+                            <button onClick={handleDataLoad}>Load more</button>
                         </td>
                     </tr>}
                 </tbody>

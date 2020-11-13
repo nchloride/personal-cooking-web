@@ -155,6 +155,16 @@ td>ul>li{
 .food__modal_form>.images{
     display: flex;
 }
+/* Load More Button */
+
+.load__more_row>td>button{
+    background-color: rgb(189, 189, 189);
+    width: 100%;
+
+    font-family: monospace;
+    font-weight: bold;
+
+}
 @media screen and (max-width:1200px){
     .food__modal{
         margin-left: 10%;

@@ -4,6 +4,7 @@ import {useForm} from "react-hook-form"
 import HighlightOffIcon from '@material-ui/icons/HighlightOff';
 import axios from "axios"
 import FoodUpdateForm from './FoodUpdateForm';
+import { setRef } from '@material-ui/core';
 
 const convertBase64 = photo =>{
     return new Promise((resolve,reject)=>{
@@ -32,10 +33,16 @@ export default function FoodModal({modalOpen,setModalOpen,setRefresh,food}) {
         Promise.all( photos.map(async photo => await convertBase64(photo))).then(async val=>{
             data.picture=val
             console.log(data.picture);
-            await axios.post("/api/foods",data,{headers:{"Authorization":`Bearer ${accessToken}`}}).then(response=> setRefresh(true));
+            await axios.post("/api/foods",data,{headers:{"Authorization":`Bearer ${accessToken}`}}).then(response=>{
+                if(response.data.successful){
+                    setRefresh(true)
+                    reset()
+                    alert(response.data.message);
+                    return
+                }
+                alert(response.data.message);
+            });
         })    
-       
-        reset()
     }
 
    
