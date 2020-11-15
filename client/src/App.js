@@ -4,11 +4,10 @@ import {Switch,Route} from "react-router-dom"
 import Home from "./Home/Home";
 import FoodsPage from "./Foods/FoodsPage";
 import "./App.css"
-import Login from "./Login";
-import Admin from "./admin";
 import Dashboard from "./dashboard";
 import {useDispatch} from "react-redux"
 import { fetchFoods } from "./actions/foodActions";
+import Recipe from "./Recipe/Recipe";
 
 function App() {
   const [navEnabled,setNavEnabled] = useState(true);
@@ -24,6 +23,7 @@ function App() {
         <Switch>
           <Route path="/" exact component={Home}/>
           <Route path="/food/:category?"  component={FoodsPage}/>
+          <Route path="/recipe/:foodname?" component={Recipe}/>
           <Route path="/dashboard"  children={<Dashboard setEnableNav={setNavEnabled}/>}/>
         </Switch>
         </div>

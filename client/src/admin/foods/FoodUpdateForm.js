@@ -1,8 +1,8 @@
-import React,{useEffect, useState} from 'react'
+import React,{useState} from 'react'
 import {useForm} from "react-hook-form"
 import axios from "axios"
 const FoodUpdateForm = ({food,base64Convert,setModalOpen,setRefresh,notEqualsToPlaceHolder}) => {
-    const {handleSubmit,errors,register} = useForm();
+    const {handleSubmit,register} = useForm();
     const [initialFoodValue,setInitialFoodValue]  = useState({
         name:food.name,
         type:food.type,
@@ -27,7 +27,6 @@ const FoodUpdateForm = ({food,base64Convert,setModalOpen,setRefresh,notEqualsToP
             let photos = [];
             Array.prototype.forEach.call(e.target.files, async file =>{
                 photos.push(file);
-                console.log(file);
             })
             Promise.all(photos.map(async photo=> await base64Convert(photo))).then(val =>{
                 

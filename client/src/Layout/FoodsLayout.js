@@ -1,7 +1,7 @@
 import React from 'react'
 import FoodContainer from '../Foods/FoodContainer'
 
-const FoodsLayout = ({pageTitle,foodList,featuredFood,limitReached,setFoodCounter}) => {
+const FoodsLayout = ({pageTitle,foodList,featuredFood,limitReached,setFoodLimitCounter}) => {
     return (
     <div className="food_page__layout">
         <div className="food__selected">
@@ -10,7 +10,7 @@ const FoodsLayout = ({pageTitle,foodList,featuredFood,limitReached,setFoodCounte
                 <FoodContainer food={food} key={id}/>
             ))
             }
-            {!limitReached && <button onClick={()=>setFoodCounter(prevData=>prevData*2)}>Load</button>}
+            {!limitReached && <button className="load__more" onClick={()=>setFoodLimitCounter(prevData=>prevData*2)}>Load more</button>}
         </div>
         <div className="food__featured">
             <h1>Featured</h1>

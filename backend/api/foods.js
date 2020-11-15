@@ -10,7 +10,9 @@ const userAuthenticated = (req,res,next) =>{
     })
 }
 
-router.get("/",(req,res)=>{
+router.get("/:name?",(req,res)=>{
+    const {name} =req.params;
+    if(name) return db.get('foods').findOne({name}).then(result => res.json(result));
     db.get('foods').find({}).then(result => res.json(result));
 });
 router.post("/",userAuthenticated,(req,res)=>{

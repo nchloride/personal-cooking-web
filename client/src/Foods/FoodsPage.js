@@ -6,12 +6,12 @@ import FoodsLayout from '../Layout/FoodsLayout'
 const FoodsPage = () => {
     const {category} = useParams();
     const [foodList,setFoodList] = useState([]);
-    const [foodCounter,setFoodCounter] =useState(1);
+    const [foodLimitCounter,setFoodLimitCounter] =useState(1);
     const foodLimit = 1;
-    const newFoodList = foodList.slice(0,foodCounter * foodLimit);
+    const newFoodList = foodList.slice(0,foodLimitCounter * foodLimit);
     const limitReached = foodList.length <= newFoodList.length;
     const selectedFood = foodList && foodList.filter(food=>food.type === category);
-    const newSelectedFood = selectedFood.slice(0,foodCounter*foodLimit)
+    const newSelectedFood = selectedFood.slice(0,foodLimitCounter*foodLimit)
     const pageTitle = category && `${category[0].toUpperCase()}${category.substring(1,category.length)}` 
     useEffect(()=>{
         (async ()=>{
@@ -24,11 +24,11 @@ const FoodsPage = () => {
         <div className="foods">
             {category ? 
                 <> 
-                    {<FoodsLayout pageTitle={pageTitle} foodList={newSelectedFood} featuredFood={selectedFood} limitReached={limitReached} setFoodCounter={setFoodCounter}/>}
+                    {<FoodsLayout pageTitle={pageTitle} foodList={newSelectedFood} featuredFood={selectedFood} limitReached={limitReached} setFoodLimitCounter={setFoodLimitCounter}/>}
                 </>
                 :
                 <>
-                    {<FoodsLayout pageTitle={'Foods'} foodList={newFoodList} featuredFood={foodList} limitReached={limitReached} setFoodCounter={setFoodCounter}/>}
+                    {<FoodsLayout pageTitle={'Foods'} foodList={newFoodList} featuredFood={foodList} limitReached={limitReached} setFoodLimitCounter={setFoodLimitCounter}/>}
                 </>
             }
         </div>
