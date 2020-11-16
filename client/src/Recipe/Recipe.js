@@ -30,7 +30,7 @@ const Recipe = () => {
                     <Carousel>
                         {foodDetails.picture?.map((image,id)=>(
                             <Carousel.Item key={id}>
-                                <img  src={image} alt={foodDetails.name}/>
+                                <img  src={image} alt={foodDetails.name}/> 
                             </Carousel.Item>
                         ))}
                     </Carousel>
