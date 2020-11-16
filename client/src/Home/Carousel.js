@@ -11,8 +11,9 @@ const CarouselTab = () => {
                     <h1>Carolyn Gullon</h1>
                     <img alt="1" className="carousel__image" src={defaultBackground}></img>
                 </Carousel.Item>
-                <Carousel.Item>
-                <img alt="2" className="carousel__image" src={defaultBackground2}></img>
+                <Carousel.Item className="carousel__item">
+                    <h1>Home Baked Goodies</h1>
+                    <img alt="2" className="carousel__image" src={defaultBackground2}></img>
                 </Carousel.Item>
             </Carousel>
         </>

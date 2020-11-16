@@ -9,7 +9,7 @@ const FoodsPage = () => {
     const [foodLimitCounter,setFoodLimitCounter] =useState(1);
     const foodLimit = 1;
     const newFoodList = foodList.slice(0,foodLimitCounter * foodLimit);
-    const limitReached = foodList.length <= newFoodList.length;
+    const limitReached = foodLimitCounter >= newFoodList.length && foodLimitCounter ===newFoodList.length;
     const selectedFood = foodList && foodList.filter(food=>food.type === category);
     const newSelectedFood = selectedFood.slice(0,foodLimitCounter*foodLimit)
     const pageTitle = category && `${category[0].toUpperCase()}${category.substring(1,category.length)}` 

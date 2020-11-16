@@ -10,7 +10,7 @@ const FoodsLayout = ({pageTitle,foodList,featuredFood,limitReached,setFoodLimitC
                 <FoodContainer food={food} key={id}/>
             ))
             }
-            {!limitReached && <button className="load__more" onClick={()=>setFoodLimitCounter(prevData=>prevData*2)}>Load more</button>}
+            {limitReached && <button className="load__more" onClick={()=>setFoodLimitCounter(prevData=>prevData*2)}>Load more</button>}
         </div>
         <div className="food__featured">
             <h1>Featured</h1>

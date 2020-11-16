@@ -1,5 +1,8 @@
 /* Main Page */
 @import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@300&family=Questrial&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
 .foods{
     padding: 10px;
     background-color: rgb(255, 255, 255);
@@ -30,8 +33,9 @@
     border-bottom: 1px solid black;
     text-align: center;
     padding: 20px;
-    font-family: 'Merriweather Sans', sans-serif;
- 
+    /* font-family: 'Merriweather Sans', sans-serif; */
+    font-family: 'Lobster', sans-serif;
+    font-weight: lighter;
 }
 .food__container{
     width: 100%;
@@ -83,7 +87,8 @@
     border-bottom: 1px solid black;
     padding: 20px;
     text-align: center;
-    font-family: 'Merriweather Sans', sans-serif;
+    font-family: 'Lobster', sans-serif;
+    
 }
 .food__featured>.food__container{
    flex-direction: column;

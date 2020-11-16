@@ -8,6 +8,7 @@
 }
 .carousel__item{
     position: relative;
+    text-align: center;
 }
 .carousel__item>h1{
     font-family: 'Pacifico', cursive;
@@ -23,6 +24,7 @@
     left: 50%;
     transform:translate(-50%,-50%);
     animation:.5s fadeIn ease-in-out;
+    width: 100%;
 }
 @keyframes fadeIn {
     from{
