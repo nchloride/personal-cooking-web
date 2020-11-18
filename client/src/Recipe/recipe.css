@@ -65,7 +65,25 @@
     height: 200px;
     background-color: beige;
     position: relative;
-  
+}
+.card__texts>div{
+    display: flex;
+    flex-direction: column;
+}
+.recipe__link{
+    text-decoration: none;
+    color: whitesmoke;
+    position: relative;
+    height: 20px;
+    margin-top: 20px;
+    font-size: 10px;
+    padding: 1px;
+    bottom: -1000%;
+}.recipe__link:hover{
+    transition: .1s;
+    text-decoration: none;
+    background-color: #23231A;
+    color: white;
 }
 .recipe__card>img{
     width: 100%;
@@ -97,7 +115,7 @@
 .text__hovered{
     transition: .2s;
     bottom: 0%;
-    color: white;
+    color: whitesmoke;
     transform:scale(1.2);
 }
 .card__hovered{

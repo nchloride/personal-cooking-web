@@ -24,6 +24,8 @@
 }
 .admin__navLinks>.navLink{
     font-family: 'Yanone Kaffeesatz', sans-serif;
+    color: black
+    ;
 }
 @media screen and (max-width:1024px), screen and (max-width:425px){
     .admin>.navigation__button{

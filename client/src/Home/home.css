@@ -8,10 +8,20 @@
     display: flex;
     flex-direction: column;
 }
+/* RECIPE */
 .home>.recipe__page{
     width: 100%;
     box-shadow: none;
 }
+.home .recipe__container_layout{
+    padding: unset;
+    gap: 10px;
+}
+.home .recipe__container_layout .recipe__card{
+    height: 250px;
+    width: 100%;
+}
+/* CAROUSEL */
 .carousel__item{
     position: relative;
     text-align: center;
@@ -49,6 +59,9 @@
     .home{
         width: 80%;
     }
+    .home .recipe__container_layout{
+        padding: unset;
+    }
 }
 @media screen and (max-width:425px){
     .home{
@@ -59,4 +72,5 @@
         width:100vw;
         height:50vh;
     }
+    
 }

@@ -7,7 +7,7 @@ const FoodsPage = () => {
     const {category} = useParams();
     const [foodList,setFoodList] = useState([]);
     const [foodLimitCounter,setFoodLimitCounter] =useState(1);
-    const foodLimit = 2;
+    const foodLimit = 5;
     const newFoodList = foodList.slice(0,foodLimitCounter * foodLimit);
     const limitReached = foodLimitCounter >= newFoodList.length && foodLimitCounter !== newFoodList.length;
     const selectedFood = foodList && foodList.filter(food=>food.type === category);
