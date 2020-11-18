@@ -7,7 +7,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@300&family=Questrial&display=swap');
 .navigation{
-    background-color: bisque;
+    background-color: #FCBA12;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -37,7 +37,7 @@
     justify-self: center;
     text-align: center;
     text-decoration: none;
-    color: rgb(7, 7, 7);
+    color: white;
     padding: 10px;
 }
 .navLink:hover{
@@ -68,7 +68,7 @@ div.navLink{
     box-shadow: 0 0 4pt 0pt black;
 }
 .navLink__dropDown_links:hover{
-    background-color: bisque;
+    background-color: #FFED29;
 }
 @keyframes growAnimation{
     from{
@@ -79,9 +79,9 @@ div.navLink{
     }
 }
 .navLink__dropDown_links>.dropDown_links{
-    font-family: 'Merriweather', sans-serif;
+    font-family: 'Lobster', sans-serif;
     text-decoration: none;
-    color: black;
+    color: #23231A;
     padding: 10px;
 }
 .navLink__dropDown_links>.dropDown_links:hover{

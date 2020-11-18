@@ -36,6 +36,7 @@
     /* font-family: 'Merriweather Sans', sans-serif; */
     font-family: 'Lobster', sans-serif;
     font-weight: lighter;
+    background-color: #E6E6E6;
 }
 .food__container{
     width: 100%;
@@ -74,7 +75,7 @@
     align-self: flex-end;
     padding: 5px;
     text-decoration: none;
-    background-color: rgb(60, 88, 248);
+    background-color: #23231A;
     color: white;
 }
 /* Featured */
@@ -88,7 +89,7 @@
     padding: 20px;
     text-align: center;
     font-family: 'Lobster', sans-serif;
-    
+    background-color: #E6E6E6;
 }
 .food__featured>.food__container{
    flex-direction: column;

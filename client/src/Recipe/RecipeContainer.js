@@ -5,7 +5,7 @@ const RecipeContainer = ({name,foodDetails}) => {
             <div className="recipe__container">
                     <Carousel className="recipe__carousel">
                         {foodDetails.picture?.map((image,id)=>(
-                            <Carousel.Item className="recipe__img_container" key={id}>
+                            <Carousel.Item className="recipe__img_carousel" key={id}>
                                 <img  src={image} alt={foodDetails.name}/> 
                             </Carousel.Item>
                         ))}

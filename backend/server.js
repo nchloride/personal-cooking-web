@@ -84,7 +84,7 @@ app.get("/logOut", (req,res)=>{
 app.use("/api/foods",foods)
 
 
-app.get("*", (req, res) => {
+app.get("/.*", (req, res) => {
     res.sendFile('index.html',{root:path.join(__dirname, "../client/build")});
     //res.redirect("/")
 });
