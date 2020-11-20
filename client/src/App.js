@@ -8,6 +8,8 @@ import Dashboard from "./dashboard";
 import {useDispatch} from "react-redux"
 import { fetchFoods } from "./actions/foodActions";
 import Recipe from "./Recipe/Recipe";
+import Footer from "./Footer/Footer";
+import Service from "./Services/Service";
 
 function App() {
   const [navEnabled,setNavEnabled] = useState(true);
@@ -24,9 +26,11 @@ function App() {
           <Route path="/" exact component={Home}/>
           <Route path="/food/:category?"  component={FoodsPage}/>
           <Route path="/recipe/:foodname?" component={Recipe}/>
+          <Route path="/services" component={Service}/>
           <Route path="/dashboard"  children={<Dashboard setEnableNav={setNavEnabled}/>}/>
         </Switch>
         </div>
+        {navEnabled && <Footer/>}
     </div>
   );
 }

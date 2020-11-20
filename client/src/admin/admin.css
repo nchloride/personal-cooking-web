@@ -17,15 +17,22 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-
-    justify-content: space-evenly;
     overflow: hidden;
     z-index: 199;
 }
+.admin__navLinks >h1{
+    font-size: 3rem;
+}
 .admin__navLinks>.navLink{
     font-family: 'Yanone Kaffeesatz', sans-serif;
-    color: black
-    ;
+    color: black;
+    width: 100%;
+    font-size: 2rem;
+}
+.navLink__active{
+    background-color: rgba(0, 0, 0, 0.452);
+    border: unset;
+    color: whitesmoke;
 }
 @media screen and (max-width:1024px), screen and (max-width:425px){
     .admin>.navigation__button{

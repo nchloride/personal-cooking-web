@@ -21,6 +21,10 @@
     height: 250px;
     width: 100%;
 }
+/* SERVICE */
+.home .services{
+    width: 100%;
+}
 /* CAROUSEL */
 .carousel__item{
     position: relative;

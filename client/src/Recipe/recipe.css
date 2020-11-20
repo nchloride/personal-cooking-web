@@ -55,7 +55,7 @@
 }
 .recipe__img_carousel img{
     width: 100%;
-    height: 100%;
+    height: 500px;
     object-fit: contain;
     margin: 0 auto;
 }
@@ -78,8 +78,10 @@
     margin-top: 20px;
     font-size: 10px;
     padding: 1px;
-    bottom: -1000%;
-}.recipe__link:hover{
+    bottom: -70%;
+    background-color: #27271d86 ;
+}
+.recipe__link:hover{
     transition: .1s;
     text-decoration: none;
     background-color: #23231A;

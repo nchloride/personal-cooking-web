@@ -1,0 +1,27 @@
+.footer{
+    background-color: #23231A;
+    height:  10vh;
+    width: 70%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.footer > small{
+    color: whitesmoke;
+}
+.footer small > a {
+    color: whitesmoke;
+    text-decoration: none;
+}
+@media screen and (max-width:1024px){
+    .footer{
+        width: 80%;
+    }
+}
+@media screen and (max-width:425px){
+    .footer{
+        width: 100%;
+    }
+}

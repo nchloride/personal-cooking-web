@@ -3,6 +3,7 @@ import {useParams} from "react-router-dom"
 import "./foods.css"
 import axios from 'axios'
 import FoodsLayout from '../Layout/FoodsLayout'
+import Loading from '../Loading/Loading'
 const FoodsPage = () => {
     const {category} = useParams();
     const [foodList,setFoodList] = useState([]);
@@ -20,7 +21,8 @@ const FoodsPage = () => {
             })
         })()
     },[]);
-    return (
+  
+    return foodList.length!==0? (
         <div className="foods">
             {category ? 
                 <> 
@@ -32,7 +34,7 @@ const FoodsPage = () => {
                 </>
             }
         </div>
-    )
+    ): <Loading/>
 }
 
 export default FoodsPage

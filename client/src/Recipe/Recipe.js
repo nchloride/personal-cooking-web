@@ -2,6 +2,7 @@ import axios from 'axios';
 import React,{useEffect,useState} from 'react';
 import { useParams } from 'react-router-dom';
 import RecipeLayout from '../Layout/RecipeLayout';
+import Loading from '../Loading/Loading';
 import "./recipe.css";
 import RecipeContainer from './RecipeContainer';
 const Recipe = () => {
@@ -24,7 +25,8 @@ const Recipe = () => {
                     <h1>Not Found</h1>
                 </div>
                 :
-                <RecipeContainer name={name} foodDetails={foodDetails} />
+                foodDetails? <RecipeContainer name={name} foodDetails={foodDetails} />
+                :<Loading/>
         :
         <RecipeLayout/>
     )
