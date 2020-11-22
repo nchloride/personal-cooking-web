@@ -24,7 +24,7 @@ function App() {
         <div className="App__body">
         <Switch>
           <Route path="/" exact component={Home}/>
-          <Route path="/food/:category?"  component={FoodsPage}/>
+          <Route path="/foods/:category?"  component={FoodsPage}/>
           <Route path="/recipe/:foodname?" component={Recipe}/>
           <Route path="/services" component={Service}/>
           <Route path="/dashboard"  children={<Dashboard setEnableNav={setNavEnabled}/>}/>

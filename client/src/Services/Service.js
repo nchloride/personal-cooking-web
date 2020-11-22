@@ -22,7 +22,7 @@ const Service = () => {
                 </div>
                 <img src={defaultBackground} alt="test"></img>
             </section>
-            <div className="sevice__container">Mtatisatareta</div>
+            <section className="sevice__container"><h1>Hooray for today</h1></section>
         </div>
     )
 }

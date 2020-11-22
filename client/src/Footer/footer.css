@@ -1,23 +1,87 @@
 .footer{
     background-color: #23231A;
-    height:  10vh;
+  
     width: 70%;
     margin: 0 auto;
     display: flex;
     justify-content: center;
     align-items: center;
-
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 }
 .footer > small{
+    margin: 2rem;
     color: whitesmoke;
+    font-family: 'Blinker', sans-serif
 }
 .footer small > a {
     color: whitesmoke;
     text-decoration: none;
 }
+/* Contact */
+.contact{
+    padding: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+@import url('https://fonts.googleapis.com/css2?family=Blinker:wght@300&display=swap');
+/* Contact Links */
+.contact__links{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.contact__links .contact_link{
+    color: whitesmoke;
+    text-decoration: none;
+    font-family: 'Blinker', sans-serif;
+    list-style: none;
+}
+/* Contact Message */
+.contact__message{
+    width: 50%;
+}
+.contact__message form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.contact__message>form>h1 {
+    color: whitesmoke;
+    font-family: 'Blinker', sans-serif;
+    text-align: center;
+    font-weight: bolder;
+}
+.contact__message>form>input {
+    border: none;
+    border-bottom: 2px solid black;
+    text-align: center;
+    outline: none;
+    height: 2rem;
+}
+.contact__message>form>textarea {
+    resize: none;
+    outline: none;
+    border:none;
+    border-bottom: 2px solid black
+}
 @media screen and (max-width:1024px){
     .footer{
         width: 80%;
+    }
+}
+@media screen and (max-width:768px){
+    .contact{
+        flex-direction: column;
+        align-items: center;
+    }
+    .contact__message{
+        width: 100%;
+    }
+    .contact__links .contact_link{
+        font-size: 1.5rem;
     }
 }
 @media screen and (max-width:425px){

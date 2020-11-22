@@ -16,14 +16,14 @@ const Nav = () => {
         <nav className="navigation">
             <ul className="navigation__links">
                 <NavLink to="/" exact activeClassName="navLink__active" className="navLink">Home</NavLink>
-                <NavLink onMouseEnter={()=>setShowFoodList(true)} to="/food" onMouseLeave={()=>setShowFoodList(false)} className="navLink">Foods
+                <NavLink onMouseEnter={()=>setShowFoodList(true)} to="/foods" onMouseLeave={()=>setShowFoodList(false)} className="navLink">Foods
                 </NavLink>
                 {showFoodList && 
                     <div className="navLink__dropDown_links" onMouseEnter={()=>setShowFoodList(true)} onMouseLeave={()=>setShowFoodList(false)}>
-                        <NavLink to="/food/pastry" className="dropDown_links">Pastry</NavLink>
-                        <NavLink to="/food/deserts" className="dropDown_links">Deserts</NavLink>
-                        <NavLink to="/food/Dinner" className="dropDown_links">Dinner</NavLink>
-                        <NavLink to="/food/specialty" className="dropDown_links">Specialty</NavLink>
+                        <NavLink to="/foods/pastry" className="dropDown_links">Pastry</NavLink>
+                        <NavLink to="/foods/deserts" className="dropDown_links">Deserts</NavLink>
+                        <NavLink to="/foods/Dinner" className="dropDown_links">Dinner</NavLink>
+                        <NavLink to="/foods/specialty" className="dropDown_links">Specialty</NavLink>
                     </div>}
                 <NavLink to="/recipe" activeClassName="navLink__active" className="navLink">Recipe</NavLink>
                 <NavLink to="/services" activeClassName="navLink__active" className="navLink">Services</NavLink>
