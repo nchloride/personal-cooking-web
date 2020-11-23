@@ -6,6 +6,7 @@
     margin: 0% auto;
     overflow-y:scroll;
     scroll-snap-type: y mandatory;
+    
 }
 .sevice__container{
     height: 100%;
@@ -17,6 +18,7 @@
     font-family: 'Oswald', sans-serif;
     text-align: left;
     font-size: 15px;
+    position: relative;
 }
 .sevice__container>img{
     width: 40%;
@@ -31,6 +33,25 @@
 }
 .sevice__container:nth-child(3){
     background-color: darkcyan;
+}
+.scroll_down{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    bottom: 18%;
+    animation: upDown 2s infinite;
+}
+@keyframes upDown{
+    0%{
+        bottom: 18%;
+    }
+    50%{
+        bottom: 21%;
+    }
+    100%{
+        bottom: 18%;
+    }
 }
 @media screen and (max-width:1024px){
     .services{

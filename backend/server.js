@@ -5,6 +5,7 @@ require("dotenv").config()
 const bcrypt = require("bcryptjs")
 const path = require("path")
 const foods = require("./api/foods")
+const messages = require("./api/messages")
 const helmet = require('helmet');
 const session = require('express-session');
 const cookieParser = require("cookie-parser");
@@ -12,7 +13,7 @@ const morgan = require('morgan')
 const passport = require("passport");
 const jwt = require("jsonwebtoken");
 const db = require("./database");
-const bodyParser = require("body-parser")
+const bodyParser = require("body-parser");
 //CONFIG
 const port = process.env.PORT|| 8000;
 
@@ -29,7 +30,6 @@ const userAuthenticated = (req,res,next) =>{
 
 app.use(bodyParser.json({limit:'50mb'}));
 app.use(bodyParser.urlencoded({extended:false,limit:'50mb'}))
-
 app.use(express.json());
 app.use(helmet());
 app.use(session({
@@ -62,7 +62,6 @@ app.post("/login",(req,res,next)=>{
 app.post("/register",async (req,res)=>{
     const {username,password} = req.body;
     const hashedPassword = await bcrypt.hash(password,10);
-
     db.get("user").findOne({username}).then(doc=>{
         if(!doc){
             db.get("user").insert({username,password:hashedPassword}).then(result=>{
@@ -83,7 +82,7 @@ app.get("/logOut", (req,res)=>{
 })
 //API's
 app.use("/api/foods",foods)
-
+app.use("/api/messages",messages)
 
 app.get("/.*", (req, res) => {
     res.sendFile('index.html',{root:path.join(__dirname, "../client/build")});

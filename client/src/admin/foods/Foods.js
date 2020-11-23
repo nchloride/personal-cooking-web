@@ -9,7 +9,7 @@ import FoodListRow from './FoodListRow';
 import useModalHooks from '../../ModalHooks/useModalHooks';
 
 const Foods = () => {
-    const accessToken = localStorage.getItem("accessToken")
+    const accessToken = localStorage.getItem("accessToken");
     const [modalOpen,setModalOpen] = useModalHooks(false); 
     const [refresh,setRefresh] = useState();
     const foodList = useSelector(state => state.foodList);

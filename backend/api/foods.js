@@ -1,14 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const db = require("../database")
-const jwt = require("jsonwebtoken")
-const userAuthenticated = (req,res,next) =>{
-    const accessToken = req.headers.authorization.split(" ")[1]
-    jwt.verify(accessToken,process.env.SECRET_TOKEN,(err,user)=>{
-        if(err) return res.send(err);
-        next();
-    })
-}
+const userAuthenticated = require("../tokenAuth/tokenAuth");
 
 router.get("/:name?",(req,res)=>{
     const {name} =req.params;

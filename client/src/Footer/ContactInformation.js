@@ -1,6 +1,16 @@
-import React from 'react'
-import {Link} from "react-router-dom"
+import React from 'react';
+import {Link} from "react-router-dom";
+import {useForm} from "react-hook-form";
+import axios from 'axios';
 const ContactInformation = () => {
+    const {handleSubmit,register,reset} = useForm();
+    
+    const handleSendingMessage = async(data) =>{
+        await axios.post("/api/messages",data).then(res=>{
+            reset()
+            alert(res.data.message)
+        })
+    }
     return (
         <div className="contact">
             <div className="contact__links">
@@ -34,11 +44,11 @@ const ContactInformation = () => {
                 </ul>
             </div>
             <div className="contact__message">
-                <form>
+                <form onSubmit={handleSubmit(handleSendingMessage)}>
                     <h1>Contact us!</h1>
-                    <input name="name" placeholder="Your Name"></input>
-                    <input name="email" placeholder="Email"></input>
-                    <textarea name="message" placeholder="Message...."></textarea>
+                    <input name="name" ref={register({required:true})} placeholder="Your Name"></input>
+                    <input name="email" ref={register({required:true, pattern: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/  })} placeholder="Email"></input>
+                    <textarea name="message" ref={register({required:true})} placeholder="Message...."></textarea>
                     <input type="submit" value="Submit"></input>
                 </form>
             </div>
