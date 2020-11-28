@@ -1,45 +1,51 @@
-import React from 'react';
-import {Link} from "react-router-dom";
+import React,{useState} from 'react';
+import {NavLink} from "react-router-dom";
 import {useForm} from "react-hook-form";
 import axios from 'axios';
 const ContactInformation = () => {
     const {handleSubmit,register,reset} = useForm();
-    
+    const [responseMessage,setResponseMessage] = useState('');
     const handleSendingMessage = async(data) =>{
-        await axios.post("/api/messages",data).then(res=>{
-            reset()
-            alert(res.data.message)
-        })
-    }
+        await axios.post("/api/messages",data)
+            .then(res=>{
+                console.log(res.data.message);
+                setResponseMessage(res.data.message);
+                reset();
+            })
+            .catch(error=>{
+                console.warn(error);
+            })
+        }
+          
     return (
         <div className="contact">
             <div className="contact__links">
                 <ul>
                     <li>
-                        <Link className="contact_link" to="/">Home</Link>
+                        <NavLink className="contact_link" to="/">Home</NavLink>
                     </li>
                     <li>
-                        <Link className="contact_link" to="/foods">Foods</Link>
+                        <NavLink className="contact_link" to="/foods">Foods</NavLink>
                         <ul>
                             <li>
-                                <Link className="contact_link" to="/foods/pastry">Pastry</Link>
+                                <NavLink className="contact_link" to="/foods/pastry">Pastry</NavLink>
                             </li>
                             <li>
-                                <Link className="contact_link" to="/foods/dinner">Dinner</Link>
+                                <NavLink className="contact_link" to="/foods/dinner">Dinner</NavLink>
                             </li>
                             <li>
-                                <Link className="contact_link" to="/foods/specialty">Specialty</Link>
+                                <NavLink className="contact_link" to="/foods/specialty">Specialty</NavLink>
                             </li>
                             <li>
-                                <Link className="contact_link" to="/foods/deserts">Deserts</Link>
+                                <NavLink className="contact_link" to="/foods/deserts">Deserts</NavLink>
                             </li>
                         </ul>
                     </li>
                     <li>
-                        <Link className="contact_link" to="/recipe">Recipe</Link>
+                        <NavLink className="contact_link" to="/recipe">Recipe</NavLink>
                     </li>
                     <li>
-                        <Link className="contact_link" to="/services">Services</Link>
+                        <NavLink className="contact_link" to="/services">Services</NavLink>
                     </li>
                 </ul>
             </div>
@@ -51,6 +57,10 @@ const ContactInformation = () => {
                     <textarea name="message" ref={register({required:true})} placeholder="Message...."></textarea>
                     <input type="submit" value="Submit"></input>
                 </form>
+            </div>
+            <div className="contact__response" style={{display:responseMessage ? "block":"none"}}>
+                <h1>{responseMessage}</h1>
+                <button onClick={()=>setResponseMessage("")}>Okay</button>
             </div>
         </div>
     )

@@ -12,10 +12,10 @@ const Login = ({setLoggedIn}) => {
         if(responseData.accessToken !== undefined && responseData.accessToken !== null)
         {
             localStorage.setItem("accessToken",responseData.accessToken);
-            setLoggedIn(true)
+            setLoggedIn(true);
         }
         else
-            setMessage("Incorrect password or username")
+            setMessage("Incorrect password or username");
     }
    
     return (

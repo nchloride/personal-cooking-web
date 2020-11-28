@@ -11,11 +11,13 @@ import Recipe from "./Recipe/Recipe";
 import Footer from "./Footer/Footer";
 import Service from "./Services/Service";
 
+
 function App() {
   const [navEnabled,setNavEnabled] = useState(true);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchFoods());
+
   }, [])
   return (
     <div className="App">

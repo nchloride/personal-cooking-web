@@ -18,7 +18,6 @@ router.post("/",userAuthenticated,(req,res)=>{
     
 })
 router.put("/",userAuthenticated,(req,res)=>{
-    
     const foodID = req.body._id
     const {name,type,description,ingredients,recipe,featured,picture} = req.body
     db.get('foods').findOneAndUpdate({_id:foodID},

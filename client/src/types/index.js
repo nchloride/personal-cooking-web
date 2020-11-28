@@ -1,1 +1,2 @@
-export const FETCH_FOODS = 'FETCH_FOOD';
+export const FETCH_FOODS = "FETCH_FOODS";
+export const FETCH_MESSAGES = "FETCH_MESSAGES";

@@ -4,10 +4,16 @@ import {Switch,Route} from "react-router-dom"
 import "./admin.css"
 import AdminNav from './AdminNav'
 import Foods from './foods/Foods'
-import NavButton from '../NavigationButton.component/NavButton'
 import { Settings } from './settings/Settings'
+import Messages from './messages/Messages'
+import { useDispatch } from 'react-redux'
+import { fetchMessages } from '../actions/messagesActions'
 const Admin = () => {
-    
+    const accessToken = localStorage.getItem("accessToken");
+    const dispatch = useDispatch()
+    useEffect(() => {
+       dispatch(fetchMessages(accessToken))
+    }, [])
     return (
         <div className="admin">
             <AdminNav/>
@@ -15,6 +21,7 @@ const Admin = () => {
             <Switch>
                 <Route path="/dashboard/admin/foods" component={Foods}/>
                 <Route path="/dashboard/admin/settings" component={Settings}/>
+                <Route path="/dashboard/admin/messages" component={Messages}/>
             </Switch>
         </div>
     )

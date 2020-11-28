@@ -1,5 +1,5 @@
 .footer{
-    background-color: #23231A;
+    background-color: #0f0f0b;
   
     width: 70%;
     margin: 0 auto;
@@ -39,9 +39,12 @@
     font-family: 'Blinker', sans-serif;
     list-style: none;
 }
+ul>li{
+    list-style: none;
+}
 /* Contact Message */
 .contact__message{
-    width: 50%;
+    width: 40%;
 }
 .contact__message form{
     display: flex;
@@ -57,15 +60,51 @@
 .contact__message>form>input {
     border: none;
     border-bottom: 2px solid black;
-    text-align: center;
     outline: none;
     height: 2rem;
+    padding: 1px;
 }
 .contact__message>form>textarea {
     resize: none;
     outline: none;
     border:none;
     border-bottom: 2px solid black
+}
+.contact__message>form>input[type=submit]{
+    background: #FCBA12
+}
+/* Contact Response */
+.contact__response{
+    display: none;
+    position: fixed;
+    background-color: #FCBA12;
+    width: 300px;
+    height: 200px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    animation: fadeIn .5s ease-in;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+    border-radius: 10px;
+}
+.contact__response>h1{
+    font-size: 2rem;
+}
+.contact__response>button{
+    background: #23231A;
+    color: whitesmoke;
+    width: 100%;
+}
+@keyframes fadeIn{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
 }
 @media screen and (max-width:1024px){
     .footer{

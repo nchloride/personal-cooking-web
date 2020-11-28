@@ -15,21 +15,20 @@ const FoodListRow = ({foodList,setRefresh,handleDelete}) => {
         setModalOpen(true)
     }
     useEffect(() => {
+        let isMounted = true;
         window.addEventListener('resize',()=>{
-           console.log(window.innerWidth) 
             if(window.innerWidth <= 1080){
-                console.log(true);
-                setIsResized(true);
-                return
+               isMounted && setIsResized(true);
+                return;
             }
-            setIsResized(false);
-            return
+            isMounted && setIsResized(false);
+            return;
         })
      
         return()=>{
             window.removeEventListener('resize',()=>{
-                console.log(window.innerWidth) 
              })
+             isMounted=false
         }
     }, [])
     return (

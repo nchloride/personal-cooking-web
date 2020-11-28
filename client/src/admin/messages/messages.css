@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap');
+.messages{
+    width: 100%;
+    
+}
+.messages>h1{
+    font-family: 'Space Grotesk', sans-serif;
+    background-color: rgb(94, 94, 94);
+    color: white;
+    margin: 0%;
+    padding: 5px;
+}
+.message__container{
+    border-bottom: 1px solid black;
+    padding: 5px;
+    max-width: 100%;
+    
+}
+.message__container_name{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    cursor: pointer;
+}
+.message__container_name>.drop__down{
+    cursor: pointer;
+}
+.message__content{
+    display: flex;
+    justify-content: space-between;
+    word-break: break-all;
+    
+}
+.message__content>button{
+    background-color: transparent;
+    color: rgb(243, 50, 50);
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
