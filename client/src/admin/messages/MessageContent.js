@@ -7,7 +7,7 @@ const MessageContent = ({message,handleDelete:Delete}) => {
     }
     return (
         <motion.div layout className="message__content">
-            <motion.div layout initial={{opacity:0,y:-10}} animate={{opacity:1,y:0}} >
+            <motion.div  initial={{opacity:0,y:-10}} animate={{opacity:1,y:0}} >
                 <motion.h2>{message.email}</motion.h2>
                 <motion.p>{message.message}</motion.p>
             </motion.div>   

@@ -20,13 +20,6 @@ const port = process.env.PORT|| 8000;
 // app.use(express.static("../client/build"));
 app.use('/',express.static(path.join(__dirname, "../client/build")));
 //MIDDLEWARES
-const userAuthenticated = (req,res,next) =>{
-    const accessToken = req.body.token.split(" ")[0]
-    jwt.verify(accessToken,process.env.SECRET_TOKEN,(err,user)=>{
-        if(err) return res.send(err);
-        next();
-    })
-}
 
 app.use(bodyParser.json({limit:'50mb'}));
 app.use(bodyParser.urlencoded({extended:false,limit:'50mb'}))
@@ -57,14 +50,15 @@ app.post("/login",(req,res,next)=>{
                 }
             })
         }
-    })(req,res,next)
+    })(req,res,next);
 })
 app.post("/register",async (req,res)=>{
     const {username,password} = req.body;
     const hashedPassword = await bcrypt.hash(password,10);
     db.get("user").findOne({username}).then(doc=>{
         if(!doc){
-            db.get("user").insert({username,password:hashedPassword}).then(result=>{
+            db.get("user").insert({username,password:hashedPassword})
+            .then(result=>{
                 res.send({message:"User Created"});
             })
         }

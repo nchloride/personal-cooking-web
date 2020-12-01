@@ -10,6 +10,7 @@ import { fetchFoods } from "./actions/foodActions";
 import Recipe from "./Recipe/Recipe";
 import Footer from "./Footer/Footer";
 import Service from "./Services/Service";
+import NotFound from "./NotFound/NotFound";
 
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
           <Route path="/recipe/:foodname?" component={Recipe}/>
           <Route path="/services" component={Service}/>
           <Route path="/dashboard"  children={<Dashboard setEnableNav={setNavEnabled}/>}/>
+          <Route path="*" exact component={NotFound}/>
         </Switch>
         </div>
         {navEnabled && <Footer/>}

@@ -3,6 +3,7 @@ import React,{useEffect,useState} from 'react';
 import { useParams } from 'react-router-dom';
 import RecipeLayout from '../Layout/RecipeLayout';
 import Loading from '../Loading/Loading';
+import NotFound from '../NotFound/NotFound';
 import "./recipe.css";
 import RecipeContainer from './RecipeContainer';
 const Recipe = () => {
@@ -20,13 +21,12 @@ const Recipe = () => {
     
     return (
         foodName?
-            !foodDetails ? 
-                <div>
-                    <h1>Not Found</h1>
-                </div>
+            foodDetails ? 
+                !foodDetails? <Loading/>
                 :
-                foodDetails? <RecipeContainer name={name} foodDetails={foodDetails} />
-                :<Loading/>
+                <RecipeContainer name={name} foodDetails={foodDetails}/>
+                :
+                <NotFound/>
         :
         <RecipeLayout/>
     )

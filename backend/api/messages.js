@@ -21,7 +21,8 @@ messageRoute.get('/',userAuthenticated,(req,res)=>{
 })
 messageRoute.delete("/:_id",userAuthenticated,(req,res)=>{
     const {_id} = req.params;
-    message.findOneAndDelete({_id}).then(result=>res.json(result));
+    message.findOneAndDelete({_id})
+    .then(result=>res.json(result));
 })
 
 

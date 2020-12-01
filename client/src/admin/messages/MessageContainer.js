@@ -10,8 +10,8 @@ const MessageContainer = ({message,handleDelete}) => {
     }
     return (
         <motion.div className={"message__container"}>
-            <motion.div className="message__container_name"  onClick={handleModalClose}>
-                <motion.h1 animate={{fontSize:20}} >{message.name}</motion.h1>
+            <motion.div  className="message__container_name"  onClick={handleModalClose}>
+                <motion.h1  animate={{fontSize:20}} >{message.name}</motion.h1>
                 {isOpen ?<ExpandLessIcon className="drop__down"/> : <ExpandMoreIcon className="drop__down"/>}
             </motion.div> 
             <AnimatePresence>

@@ -20,6 +20,7 @@ const convertBase64 = photo =>{
         }
     })
 }
+
 export default function FoodModal({modalOpen,setModalOpen,setRefresh,food}) {
     const {handleSubmit,errors,register,reset} = useForm();
     const notEqualsToPlaceHolder = value => value !=='placeholder'

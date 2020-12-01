@@ -9,6 +9,7 @@ router.get("/:name?",(req,res)=>{
     db.get('foods').find({}).then(result => res.json(result));
 });
 router.post("/",userAuthenticated,(req,res)=>{
+    req.body.name = req.body.name.charAt(0).toUpperCase() + req.body.name.slice(1,req.body.name.length);
     db.get("foods").findOne({name:req.body.name}).then(doc=>{
         if(!doc)  db.get('foods').insert(req.body).then(result=>res.send({message:"Data inserted succesfully",successful:true}));
         else{
