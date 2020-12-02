@@ -1,11 +1,11 @@
 // PACKAGES
 const express = require("express")
 const app = express();
-require("dotenv").config()
-const bcrypt = require("bcryptjs")
-const path = require("path")
-const foods = require("./api/foods")
-const messages = require("./api/messages")
+require("dotenv").config();
+const bcrypt = require("bcryptjs");
+const path = require("path");
+const foods = require("./api/foods");
+const messages = require("./api/messages");
 const helmet = require('helmet');
 const session = require('express-session');
 const cookieParser = require("cookie-parser");
