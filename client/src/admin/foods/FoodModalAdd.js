@@ -4,7 +4,6 @@ import {useForm} from "react-hook-form"
 import HighlightOffIcon from '@material-ui/icons/HighlightOff';
 import axios from "axios"
 import FoodUpdateForm from './FoodUpdateForm';
-import { setRef } from '@material-ui/core';
 
 const convertBase64 = photo =>{
     return new Promise((resolve,reject)=>{
@@ -22,7 +21,7 @@ const convertBase64 = photo =>{
 }
 
 export default function FoodModal({modalOpen,setModalOpen,setRefresh,food}) {
-    const {handleSubmit,errors,register,reset} = useForm();
+    const {handleSubmit,register,reset} = useForm();
     const notEqualsToPlaceHolder = value => value !=='placeholder'
     const handleAddFood = async data =>{
         data.ingredients = data.ingredients.split(`\n`);

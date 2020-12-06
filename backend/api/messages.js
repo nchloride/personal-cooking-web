@@ -1,6 +1,7 @@
 const express = require("express");
 const messageRoute = express.Router();
-require("dotenv").config({path:`${__dirname}/.env`});
+const path = require("path")
+require("dotenv").config({path:'/backend/.env'});
 const db = require("../database");
 const jwt = require("jsonwebtoken");
 const message = db.get("messages");
@@ -11,16 +12,16 @@ messageRoute.post("/", async (req,res)=>{
     let transporter = nodemailer.createTransport({
         service:"gmail",
         auth:{
-            user:process.env.USERNAME,
+            user:process.env.EMAIL,
             pass:process.env.PASSWORD
         }
     })
     try {
         let mailOptions = {
-            from:"noelcarlo.lopez@gmail.com",
+            from:process.env.EMAIL,
             to:req.body.email,
             subject:"Carolyn inqueries",
-            text:"YOU MESSAGE US!"
+            text:`Hi ${req.body.name}! You messaged us at our website.`
         }
         transporter.sendMail(mailOptions,(err,data)=>{
             if(err){

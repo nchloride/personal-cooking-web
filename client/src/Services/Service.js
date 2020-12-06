@@ -35,7 +35,13 @@ const Service = () => {
                     <ArrowDownwardIcon/>
                 </div>
             </section>
-            <section className="sevice__container"><h1>Hooray for today</h1></section>
+            <section className="sevice__container">
+                <h1>ORDER NOW!</h1>
+                <div className="scroll_down">
+                    <p>For inqueries</p>
+                    <ArrowDownwardIcon/>
+                </div>
+            </section>
         </div>
     )
 }
