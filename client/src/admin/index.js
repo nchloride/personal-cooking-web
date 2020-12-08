@@ -1,5 +1,4 @@
 import React,{useEffect} from 'react'
-import axios from "axios"
 import {Switch,Route} from "react-router-dom"
 import "./admin.css"
 import AdminNav from './AdminNav'

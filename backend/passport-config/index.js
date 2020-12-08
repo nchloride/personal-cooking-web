@@ -14,7 +14,7 @@ module.exports = function(passport){
                 }
                 else{
                     bcrypt.compare(password,docs.password,(err,result)=>{
-                        if(err) console.log('Error: ',err);
+                        if(err) console.log('ESDFrror: ',err);
                         if(result){
                             return done(null,docs)
                         }
