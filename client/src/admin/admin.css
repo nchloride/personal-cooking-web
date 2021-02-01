@@ -5,6 +5,7 @@
 }
 .admin{
     overflow-y: hidden;
+    background-color: whitesmoke;
     display: flex;
 }
 @import url('https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@500&display=swap');

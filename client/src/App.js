@@ -21,21 +21,25 @@ function App() {
 
   }, [])
   return (
-    <div className="App">
-        
-        {navEnabled && <Nav/>}
-        <div className="App__body">
-        <Switch>
-          <Route path="/" exact component={Home}/>
-          <Route path="/foods/:category?"  component={FoodsPage}/>
-          <Route path="/recipe/:foodname?" component={Recipe}/>
-          <Route path="/services" component={Service}/>
-          <Route path="/dashboard"  children={<Dashboard setEnableNav={setNavEnabled}/>}/>
-          <Route path="*" exact component={NotFound}/>
-        </Switch>
-        </div>
-        {navEnabled && <Footer/>}
-    </div>
+    <>
+      <div className="App__background-cover"></div>
+      <div className="App">
+          
+          {navEnabled && <Nav/>}
+          <div className="App__body">
+          <Switch>
+            <Route path="/" exact component={Home}/>
+            <Route path="/foods/:category?"  component={FoodsPage}/>
+            <Route path="/recipe/:foodname?" component={Recipe}/>
+            <Route path="/services" component={Service}/>
+            <Route path="/dashboard"  children={<Dashboard setEnableNav={setNavEnabled}/>}/>
+            <Route path="*" exact component={NotFound}/>
+          </Switch>
+          </div>
+          {navEnabled && <Footer/>}
+          
+      </div>
+    </>
   );
 }
 

@@ -3,6 +3,7 @@
   
     width: 70%;
     margin: 0 auto;
+    height: 40vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -109,6 +110,11 @@ ul>li{
 @media screen and (max-width:1024px){
     .footer{
         width: 80%;
+    }
+}
+@media screen and (max-width:900px){
+    .footer{
+        width: 100%;
     }
 }
 @media screen and (max-width:768px){

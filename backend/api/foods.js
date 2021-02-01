@@ -3,10 +3,28 @@ const router = express.Router();
 const db = require("../database")
 const userAuthenticated = require("../tokenAuth/tokenAuth");
 
+const foodCache = {};
 router.get("/:name?",(req,res)=>{
     const {name} =req.params;
-    if(name) return db.get('foods').findOne({name}).then(result => res.json(result));
-    db.get('foods').find({}).then(result => res.json(result));
+    const allFoods = name ? name : 'all';
+    console.log(foodCache[allFoods]);
+    if(foodCache[allFoods]){
+        res.json(foodCache[name])
+    }
+    else{
+    if(name) return db.get('foods')
+        .findOne({name})
+        .then(result => {
+            res.json(result);
+            foodCache[name] = result;
+        });
+    db.get('foods')
+        .find({})
+        .then(result =>{ 
+            res.json(result);
+            foodCache[name] = result;
+        });
+    }
 });
 router.post("/",userAuthenticated,(req,res)=>{
     req.body.name = req.body.name.charAt(0).toUpperCase() + req.body.name.slice(1,req.body.name.length);

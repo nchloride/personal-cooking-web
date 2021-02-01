@@ -78,6 +78,8 @@ app.get("/logOut", (req,res)=>{
 app.use("/api/foods",foods)
 app.use("/api/messages",messages)
 app.get("/*", (req, res) => {
+
+    console.log("AAAAAA");
     res.sendFile(path.join(__dirname, "../client/build/index.html"));
     //res.sendFile(__dirname + "/client/build")
     //res.sendFile('index.html',{root:path.join(__dirname, "../client/build")});
